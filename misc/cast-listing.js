@@ -6,7 +6,7 @@ function updateCastListing() {
       var character = $(element).children().length > 1 ? $(element).children()[1].text : "";
       var actor = $(element).children().length > 0 ? $(element).children()[0].text : "";
       var fullDescription = $(element).text();
-      var description = fullDescription.substring(fullDescription.indexOf(':') + 2);
+      var description = fullDescription.substring(fullDescription.indexOf(',') + 2);
       var storedCharacter = completeCastListing[character];
       if (storedCharacter) {
         storedCharacter.movies.push(title);
