@@ -165,9 +165,9 @@
     "movies": ["Star Wars", "The Empire Strikes Back", "Return of the Jedi", "Star Wars: The Force Awakens", "Star Wars: The Last Jedi"]
   },
   "Han Solo": {
-    "actors": ["Harrison Ford"],
-    "description": "",
-    "movies": ["Star Wars", "The Empire Strikes Back", "Return of the Jedi", "Star Wars: The Force Awakens"]
+    "actors": ["Harrison Ford", "Alden Ehrenreich"],
+    "description": "lden Ehrenreich as Han Solo:",
+    "movies": ["Star Wars", "The Empire Strikes Back", "Return of the Jedi", "Star Wars: The Force Awakens", "Solo: A Star Wars Story"]
   },
   "Princess Leia": {
     "actors": ["Carrie Fisher"],
@@ -185,9 +185,9 @@
     "movies": ["Star Wars"]
   },
   "Chewbacca": {
-    "actors": ["Peter Mayhew"],
-    "description": "A Wookiee who is Han's longtime friend and part of the Rebellion",
-    "movies": ["Star Wars", "The Empire Strikes Back", "Return of the Jedi", "Star Wars: The Force Awakens"]
+    "actors": ["Peter Mayhew", "Joonas Suotamo"],
+    "description": "Han's Wookiee sidekick and best friend, who also serves as his first mate.",
+    "movies": ["Star Wars", "The Empire Strikes Back", "Return of the Jedi", "Star Wars: The Force Awakens", "Solo: A Star Wars Story"]
   },
   "Darth Vader": {
     "actors": ["David Prowse"],
@@ -200,9 +200,9 @@
     "movies": ["The Empire Strikes Back", "Return of the Jedi"]
   },
   "Lando Calrissian": {
-    "actors": ["Billy Dee Williams"],
-    "description": "The former Baron Administrator of Cloud City and one of Han's friends who aids the Rebellion",
-    "movies": ["The Empire Strikes Back", "Return of the Jedi"]
+    "actors": ["Billy Dee Williams", "Donald Glover"],
+    "description": "onald Glover as Lando Calrissian:",
+    "movies": ["The Empire Strikes Back", "Return of the Jedi", "Solo: A Star Wars Story"]
   },
   "Galactic Empire": {
     "actors": ["the Emperor"],
@@ -278,5 +278,75 @@
     "actors": ["Benicio del Toro"],
     "description": "an underworld codebreaker.[20]",
     "movies": ["Star Wars: The Last Jedi"]
+  },
+  "Jyn Erso": {
+    "actors": ["Felicity Jones"],
+    "description": "a young renegade woman who is detained for her crimes against the Empire until she is freed by the Rebel Alliance.[5] She has used many aliases during her life such as Lianna Hallik, Tanith Pontha, and Kestrel Dawn,[6] while her father affectionately calls her \"Stardust\".\nBeau Gadsdon as 8-year-old Jyn Erso\nDolly Gadsdon as 4-year-old Jyn Erso",
+    "movies": ["Rogue One"]
+  },
+  "Cassian Andor": {
+    "actors": ["Diego Luna"],
+    "description": "a Rebel Alliance Captain and Intelligence officer.[7][8]",
+    "movies": ["Rogue One"]
+  },
+  "Orson Krennic": {
+    "actors": ["Ben Mendelsohn"],
+    "description": "the Director of Advanced Weapons Research for the Imperial Military.[7][9][10]",
+    "movies": ["Rogue One"]
+  },
+  "Chirrut Îmwe": {
+    "actors": ["Donnie Yen"],
+    "description": "a blind warrior who believes in the Force. He is said to be one of the Guardians of the Whills.[7][10][11]",
+    "movies": ["Rogue One"]
+  },
+  "Galen Erso": {
+    "actors": ["Mads Mikkelsen"],
+    "description": "a longtime companion of Chirrut Îmwe and one-time devoted Guardian of the Whills, now a Rebel warrior and mercenary.[7][10]",
+    "movies": ["Rogue One", "Rogue One"]
+  },
+  "K-2SO": {
+    "actors": ["Alan Tudyk"],
+    "description": "a former Imperial enforcer droid who was reprogrammed by Cassian Andor to serve the Rebellion.[7][14][15][16]",
+    "movies": ["Rogue One"]
+  },
+  "Bodhi Rook": {
+    "actors": ["Riz Ahmed"],
+    "description": "a former Imperial cargo pilot who defects to the rebels under the influence of Galen Erso.[17][18]",
+    "movies": ["Rogue One"]
+  },
+  "Saw Gerrera": {
+    "actors": ["Forest Whitaker"],
+    "description": "a veteran of the Clone Wars and a friend of the Erso family who had mentored Jyn in her later childhood years.[10][19]",
+    "movies": ["Rogue One"]
+  },
+  "Baze Malbus": {
+    "actors": ["Jiang Wen"],
+    "description": "a longtime companion of Chirrut Îmwe and one-time devoted Guardian of the Whills, now a Rebel warrior and mercenary.",
+    "movies": ["Rogue One"]
+  },
+  "Tobias Beckett": {
+    "actors": ["Woody Harrelson"],
+    "description": "A cynical smuggler who joins Beckett's crew.[20][21] When asked how Solo differs from his appearance in other Star Wars films, Ehrenreich stated, \"I think the main thing that's different is that the Han we meet in this film is more of an idealist. He has certain dreams that he follows, and we watch how it affects him as those dreams meet new realities – realities that are harder and more challenging than he'd expected.\"[22] Harrison Ford, who portrayed the character in previous films, met with Ehrenreich, giving him some insight and words of advice.",
+    "movies": ["Solo: A Star Wars Story"]
+  },
+  "Qi'ra": {
+    "actors": ["Emilia Clarke"],
+    "description": "Han's former lover. Describing her character, Clarke said: \"She has a couple of guises, but essentially she is just fighting to stay alive. If you've got a really glamorous lady in a really sordid environment, you kind of know the glamor is hiding a few rough roads.\" With regard to her character's relationship with Solo, Clarke offered that \"They grew up as comrades, essentially. They grew up as pals, as partners in crime. There is obviously the romantic side of things. But they grew up together. So they were kids together.\"",
+    "movies": ["Solo: A Star Wars Story"]
+  },
+  "Val": {
+    "actors": ["Thandie Newton"],
+    "description": "Beckett's wife, a fellow criminal and member of her husband's crew.",
+    "movies": ["Solo: A Star Wars Story"]
+  },
+  "L3-37": {
+    "actors": ["Phoebe Waller-Bridge"],
+    "description": "Lando's droid companion and navigator.",
+    "movies": ["Solo: A Star Wars Story"]
+  },
+  "Dryden Vos": {
+    "actors": ["Paul Bettany"],
+    "description": "A ruthless crime lord who has a history with Beckett.[26] Michael K. Williams had originally been cast,[35] but he was removed from the final film after being unable to return to set during the film's reshoots.[36] Bettany was cast in his place, with the character being reworked from a motion-capture alien (described by Williams as half-mountain lion, half-human)[37] to a scarred near-human alien lifeform.",
+    "movies": ["Solo: A Star Wars Story"]
   }
 }
