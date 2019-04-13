@@ -7,7 +7,7 @@
 body {
   display: grid;
   grid-template-columns: 200px auto;
-  grid-template-rows: 50px auto 50px;
+  grid-template-rows: 70px auto 30px;
   grid-template-areas:
     "header header"
     "sidebar main"
@@ -18,20 +18,24 @@ body {
 
 header {
   grid-area: header;
+  padding: 5px;
   background-color: yellow
 }
 
 aside {
   grid-area: sidebar;
+  padding: 5px;
   background-color: orange
 }
 
 main {
   grid-area: main;
+  padding: 5px;
   background-color: purple
 }
 
 footer {
   grid-area: footer;
+  padding: 5px;
   background-color: blue
 }
