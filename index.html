@@ -7,13 +7,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Introduction to the React Javascript library</title>
 
+  <!-- React libraries, https://reactjs.org/docs/add-react-to-a-website.html -->
   <script defer src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script defer src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
-  <!-- Don't use this in production: -->
+  <!-- Redux library, https://redux.js.org/introduction/installation -->
+  <script defer src="https://unpkg.com/redux@4.0.1/dist/redux.js"></script>
+
+  <!-- To transpile your React/JSX in-browser, Don't use this in production: -->
   <!-- <script defer src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> -->
 
-  <!-- Load our React component. -->
+  <!-- Load your React components -->
+  <script defer src="data/marvel-movie.data.js"></script>
+  <script defer src="data/marvel-character-data.js"></script>
+
+  <!-- Load your React components -->
   <script defer src="scripts/like_button.js"></script>
 
   <link rel="stylesheet" href="app-layout.css">
@@ -21,7 +29,7 @@
 
 <body>
   <header>
-    <h1>Introduction to the React Javascript library</h1>
+    <h1>Marvel</h1>
     <nav>..navigation menu links here…</nav>
   </header>
   <aside>…</aside>
@@ -33,7 +41,7 @@
       <section>…</section>
     </article>
   </main>
-  <footer>…</footer>
+  <footer>Fuse Code Camp 2019 - Introduction to the React Javascript library</footer>
 
 </body>
 

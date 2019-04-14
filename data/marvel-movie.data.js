@@ -1,4 +1,6 @@
-[
+var fuseCodeCamp2019 = fuseCodeCamp2019 || {};
+fuseCodeCamp2019.react = fuseCodeCamp2019.react || {};
+fuseCodeCamp2019.react.movieData = [
   {
     "title": "Iron Man",
     "release date": "2008-05-02T04:00:00.000Z"
@@ -83,4 +85,4 @@
     "title": "Captain Marvel",
     "release date": "2019-03-08T04:00:00.000Z"
   }
-]
+];

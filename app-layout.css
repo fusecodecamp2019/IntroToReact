@@ -1,41 +1,47 @@
+/* To override the margin and padding injected by most browsers */
 *{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+/* 
+To understand more on how the layout was built check out the below URI
+https://css-tricks.com/snippets/css/complete-guide-grid/
+*/
 body {
   display: grid;
-  grid-template-columns: 200px auto;
-  grid-template-rows: 70px auto 30px;
+  grid-template-columns: 250px auto;
+  grid-template-rows: 70px auto 35px;
   grid-template-areas:
     "header header"
     "sidebar main"
     "footer footer";
   width: 100vw;
   height: 100vh;
+  color: white;
 }
 
 header {
   grid-area: header;
-  padding: 5px;
-  background-color: yellow
+  background-color: #212529;
 }
 
 aside {
   grid-area: sidebar;
-  padding: 5px;
-  background-color: orange
+  background-color: #141414;
 }
 
 main {
   grid-area: main;
-  padding: 5px;
-  background-color: purple
+  background-color: black;
 }
 
 footer {
   grid-area: footer;
-  padding: 5px;
-  background-color: blue
+  background-color: #212529;
+}
+
+header, aside, main, footer {
+  padding: 10px;
 }

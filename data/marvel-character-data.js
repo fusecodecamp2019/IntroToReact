@@ -1,4 +1,7 @@
-{
+
+var fuseCodeCamp2019 = fuseCodeCamp2019 || {};
+fuseCodeCamp2019.react = fuseCodeCamp2019.react || {};
+fuseCodeCamp2019.react.characterData = {
   "Tony Stark / Iron Man": {
     "actors": ["Robert Downey Jr."],
     "description": "The leader and benefactor of the Avengers who is a self-described genius, billionaire, playboy, and philanthropist with electromechanical suits of armor of his own making.[3][4]",
@@ -644,4 +647,4 @@
     "description": "11] A master archer who is a former Avenger and agent of S.H.I.E.L.D.[12][13] Barton has a new outfit in the film, visually similar to that of Ronin from the comics.[14]",
     "movies": ["Avengers: Endgame"]
   }
-}
+};

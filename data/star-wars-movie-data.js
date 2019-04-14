@@ -1,4 +1,6 @@
-[
+var fuseCodeCamp2019 = fuseCodeCamp2019 || {};
+fuseCodeCamp2019.react = fuseCodeCamp2019.react || {};
+fuseCodeCamp2019.react.movieData = [
   {
     "title": "Star Wars: Episode I – The Phantom Menace",
     "release date": "1999-05-19T04:00:00.000Z"
@@ -39,4 +41,4 @@
     "title": "Solo: A Star Wars Story",
     "release date": "2018-05-T04:00:00.000Z"
   }
-]
+];

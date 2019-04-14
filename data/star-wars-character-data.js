@@ -1,4 +1,6 @@
-{
+var fuseCodeCamp2019 = fuseCodeCamp2019 || {};
+fuseCodeCamp2019.react = fuseCodeCamp2019.react || {};
+fuseCodeCamp2019.react.characterData = {
   "Qui-Gon Jinn": {
     "actors": ["Liam Neeson"],
     "description": "a Jedi Master who discovers Anakin and insists that the boy be trained as a Jedi, despite the Jedi Council's refusal to do so. Lucas originally wanted to cast an American actor in the role, but cast Neeson (who is Northern Irish) because he considered that Neeson had great skills and presence. Lucas said Neeson was a \"master actor, who the other actors will look up to, who has got the qualities of strength that the character demands\".[4]",
@@ -349,4 +351,4 @@
     "description": "A ruthless crime lord who has a history with Beckett.[26] Michael K. Williams had originally been cast,[35] but he was removed from the final film after being unable to return to set during the film's reshoots.[36] Bettany was cast in his place, with the character being reworked from a motion-capture alien (described by Williams as half-mountain lion, half-human)[37] to a scarred near-human alien lifeform.",
     "movies": ["Solo: A Star Wars Story"]
   }
-}
+};
