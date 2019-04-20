@@ -1,5 +1,5 @@
 'use strict';
-import { SearchSelector } from './search-selector.js';
+import { SearchSelector } from './search-selector.js'
 
 export class CharacterSearch extends React.Component {
   constructor(props) {

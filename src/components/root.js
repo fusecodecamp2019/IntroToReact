@@ -1,10 +1,10 @@
 'use strict';
 import { characterData } from '../data/marvel-character-data.js';
 import { MarvelSvg } from './marvel-svg.js';
-import { CharacterSearch } from './character-search.js';
-import { SearchTypes, getSearchTypeComparer } from '../helpers/search-helpers.js';
 import { CharacterListing } from './character-listing.js';
-import { CharacterDetails } from './character-details.js';
+import { SearchTypes, getSearchTypeComparer } from './character-search/search-helpers.js';
+import { CharacterSearch } from './character-search/character-search.js';
+import { CharacterDetails } from './character-details/character-details.js';
 
 const e = React.createElement;
 

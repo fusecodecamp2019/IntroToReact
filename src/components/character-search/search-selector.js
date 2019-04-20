@@ -1,5 +1,5 @@
 'use strict';
-import { SearchTypes } from '../helpers/search-helpers.js';
+import { SearchTypes } from './search-helpers.js';
 
 export class SearchSelector extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export class SearchSelector extends React.Component {
         <select onChange={this.handleChange}>
           {
             Object.keys(SearchTypes).map((key) => {
-              return <option value={SearchTypes[key]}>{SearchTypes[key]}</option>;
+              return <option key={key} value={SearchTypes[key]}>{SearchTypes[key]}</option>;
             })
           }
         </select>
