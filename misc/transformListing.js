@@ -1,12 +1,24 @@
-function transformListing(listing) {
-  var transformed = {};
-  Object.keys(listing).forEach((key) => {
-    var oldElement = listing[key];
-    transformed[key] = {
-      actors: oldElement.actors,
-      description: oldElement.description,
-      movies: oldElement.movies
-    };
+function dictionaryToArray(sourceDictionary) {
+  let listAsArray = [];
+  Object.keys(sourceDictionary).forEach((key) => {
+    let newElement = sourceDictionary[key];
+    newElement.name = key;
+    listAsArray.push(newElement);
   });
-  return transformed;
+  return listAsArray;
+}
+
+function characterCompare(a, b){
+  if (a.name > b.name) return 1;
+  if (b.name > a.name) return -1;
+  return 0;
+}
+
+function arrayToDictionary(sourceArray) {
+  let result = {};
+  sourceArray.forEach((element) => {
+    result[element.name] = element;
+    delete element.name;
+  });
+  return result;
 }

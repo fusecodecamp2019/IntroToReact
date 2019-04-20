@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/favicon.ico">
+  <title>Introduction to the React Javascript library</title>
+
+  <!-- React libraries, https://reactjs.org/docs/add-react-to-a-website.html -->
+  <!-- <script defer src="https://unpkg.com/react@16/umd/react.development.js"></script> -->
+  <!-- <script defer src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
+  <script defer src="node_modules/react/umd/react.development.js"></script>
+  <script defer src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+  <!-- Redux library, https://redux.js.org/introduction/installation -->
+  <!-- <script defer src="https://unpkg.com/redux@4.0.1/dist/redux.js"></script> -->
+  <!-- <script defer src="https://unpkg.com/react-redux@7.0.2/dist/react-redux.js"></script> -->
+  <!-- <script defer src="node_modules/redux/dist/redux.js"></script> -->
+  <!-- <script defer src="node_modules/react-redux/dist/react-redux.js"></script> -->
+
+  <!-- To transpile your React/JSX in-browser, Don't use this in production: -->
+  <!-- <script defer src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> -->
+
+ <!-- Load your Redux actions and reducers -->
+  <!-- <script defer type="module" src="dist/scripts/character-actions.js"></script> -->
+  <!-- <script defer type="module" src="dist/scripts/character-reducer.js"></script> -->
+  <!-- <script defer type="module" src="dist/scripts/character-store.js"></script> -->
+  <!-- <script defer type="module" src="dist/scripts/character-testing.js"></script> -->
+
+
+  <!-- Load your React components -->
+  <script defer type="module" src="dist/components/root.js"></script>
+  <script defer type="module" src="dist/components/character-listing.js"></script>
+  <script defer type="module" src="dist/components/character-details.js"></script>
+  <script defer type="module" src="dist/components/movie-appearances.js"></script>
+
+  <link rel="stylesheet" href="app-layout.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

@@ -1,13 +1,14 @@
 function updateCastListing() {
-  var title = $('#firstHeading i').text();
-  var castListingULs = $('.cast-listing');  //.children();
+  // Used this to scrape cast information from Wikipedia
+  let title = $('#firstHeading i').text();
+  let castListingULs = $('.cast-listing');
   castListingULs.each((ignored, castListingUL) => {
     $(castListingUL).children().each((ignored, element) => {
-      var character = $(element).children().length > 1 ? $(element).children()[1].text : "";
-      var actor = $(element).children().length > 0 ? $(element).children()[0].text : "";
-      var fullDescription = $(element).text();
-      var description = fullDescription.substring(fullDescription.indexOf(',') + 2);
-      var storedCharacter = completeCastListing[character];
+      let character = $(element).children().length > 1 ? $(element).children()[1].text : "";
+      let actor = $(element).children().length > 0 ? $(element).children()[0].text : "";
+      let fullDescription = $(element).text();
+      let description = fullDescription.substring(fullDescription.indexOf(',') + 2);
+      let storedCharacter = completeCastListing[character];
       if (storedCharacter) {
         storedCharacter.movies.push(title);
         if (storedCharacter.actors.indexOf(actor) === -1){

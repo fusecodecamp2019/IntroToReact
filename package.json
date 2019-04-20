@@ -5,13 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx babel --watch src --out-dir . --presets react-app/prod"
+    "compile": "npx babel --watch src --out-dir dist --presets react-app/prod",
+    "serve": "npx http-server -c-1",
+    "start": "concurrently --kill-others \"npx babel --watch src --out-dir dist --presets react-app/prod\" \"npx http-server -c-1\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "concurrently": "^4.1.0",
+    "http-server": "^0.11.1"
+  }
 }

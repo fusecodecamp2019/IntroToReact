@@ -5,36 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/favicon.ico">
   <title>Introduction to the React Javascript library</title>
-
-  <!-- React libraries, https://reactjs.org/docs/add-react-to-a-website.html -->
-  <script defer src="https://unpkg.com/react@16/umd/react.development.js"></script>
-  <script defer src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-
-  <!-- Redux library, https://redux.js.org/introduction/installation -->
-  <script defer src="https://unpkg.com/redux@4.0.1/dist/redux.js"></script>
-
-  <!-- To transpile your React/JSX in-browser, Don't use this in production: -->
-  <!-- <script defer src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> -->
-
-  <!-- Load your React components -->
-  <script defer src="data/marvel-movie.data.js"></script>
-  <script defer src="data/marvel-character-data.js"></script>
-
-  <!-- Load your React components -->
-  <script defer src="scripts/like_button.js"></script>
-
   <link rel="stylesheet" href="app-layout.css">
 </head>
 
-<body>
+<body id="root">
   <header>
     <h1>Marvel</h1>
     <nav>..navigation menu links here…</nav>
   </header>
-  <aside>…</aside>
-  <main>
-    <div id="like_button_container"></div>
+  <aside class="character-listing">…</aside>
+  <main class="character-details">
+    <div>Works</div>
     <article>
       <section>…</section>
       <section>…</section>
@@ -42,7 +25,6 @@
     </article>
   </main>
   <footer>Fuse Code Camp 2019 - Introduction to the React Javascript library</footer>
-
 </body>
 
 </html>
