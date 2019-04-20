@@ -28,16 +28,20 @@ export class CharacterSearch extends React.Component {
   }
 
   render() {
-    const inputStyling = {
-      "padding": "2px 10px"
+    const stretchStyling = {
+      'width': '100%',
+      'height': '100%'
     };
+    const inputStyling = Object.assign({
+      "padding": "2px 10px"
+    }, stretchStyling);
     return (
       <div className="character-search">
         <div>
           <input type="text" style={inputStyling} value={this.state.textEntered} onChange={this.handleChange} />
         </div>
         <div>
-          <SearchSelector onSearchTypeChange={this.handleSearchTypeChange}></SearchSelector>
+          <SearchSelector style={stretchStyling} onSearchTypeChange={this.handleSearchTypeChange}></SearchSelector>
         </div>
       </div>
     );

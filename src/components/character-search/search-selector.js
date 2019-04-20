@@ -13,7 +13,7 @@ export class SearchSelector extends React.Component {
 
   render() {
     return (
-        <select onChange={this.handleChange}>
+        <select style={this.props.style} onChange={this.handleChange}>
           {
             Object.keys(SearchTypes).map((key) => {
               return <option key={key} value={SearchTypes[key]}>{SearchTypes[key]}</option>;

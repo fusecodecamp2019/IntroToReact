@@ -12,7 +12,7 @@ export class CharacterDetails extends React.Component {
     };
     if (this.props.selectedCharacter) {
       return (
-        <main id="character-details">
+        <main className="character-details">
           <h2>{this.props.selectedCharacter.name}</h2>
           <p>{this.props.selectedCharacter.description}</p>
           <article>
@@ -27,7 +27,7 @@ export class CharacterDetails extends React.Component {
       );
     }
     return (
-      <main id="character-details">
+      <main className="character-details">
         <div>(No selection has been made)</div>
       </main>
     );
