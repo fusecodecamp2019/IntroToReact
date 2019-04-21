@@ -12,6 +12,7 @@ export class CharacterDetails extends React.Component {
       return (
         <main className="character-details" style={this.props.generalLeftPadding}>
           <h2>{this.props.selectedCharacter.name}</h2>
+          <img src="/dist/assets/avengers-logo.jpg" alt="Avengers logo" height="30" width="30"></img>
           <p>{this.props.selectedCharacter.description}</p>
           <article>
             <section>
