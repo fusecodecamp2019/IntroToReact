@@ -6,15 +6,13 @@ export class ActorListing extends React.Component {
   }
 
   render() {
-    const actorNameStyle = {
-    };
     return (
       <div className="actor-listing">
         <h4>Actor Listing</h4>
         <ul>
           {
             this.props.actorListing.map((actor) => {
-              return <li key={actor} style={actorNameStyle}>{actor}</li>
+              return <li key={actor}>{actor}</li>
             })
           }
         </ul>

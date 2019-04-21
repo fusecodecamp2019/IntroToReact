@@ -9,6 +9,9 @@ export class SearchSelector extends React.Component {
 
   handleChange(event) {
     this.props.onSearchTypeChange(event.target.value)
+    this.setState(function(state, props) {
+      
+    });
   }
 
   render() {

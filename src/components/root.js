@@ -2,7 +2,7 @@
 import { characterData } from '../data/marvel-character-data.js';
 import { MarvelSvg } from './marvel-svg.js';
 import { CharacterListing } from './character-listing.js';
-import { SearchTypes, getSearchTypeComparer } from './character-search/search-helpers.js';
+import { SearchTypes, getSearchEvaluator, filterCharacterData } from './character-search/search-helpers.js';
 import { CharacterSearch } from './character-search/character-search.js';
 import { CharacterDetails } from './character-details/character-details.js';
 
@@ -14,13 +14,16 @@ export class Root extends React.Component {
     this.state = {
       selectedCharacterName: undefined,
       selectedCharacter: undefined,
+      searchText: '',
       filterType: SearchTypes.CHARACTERS,
+      isFilteringForAvengersOnly: false,
       filteredCharacterData: characterData
     };
 
     this.onSelectedCharacterChange = this.onSelectedCharacterChange.bind(this);
-    this.onSearchChange = this.onSearchChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSearchTypeChange = this.onSearchTypeChange.bind(this);
+    this.onAvengersOnlyFilterChange = this.onAvengersOnlyFilterChange.bind(this);
   }
 
   onSelectedCharacterChange(selectedCharacterName) {
@@ -29,17 +32,13 @@ export class Root extends React.Component {
     selectedCharacter.name = selectedCharacterName;
     this.setState({selectedCharacter: selectedCharacter});
   }
-
-  onSearchChange(searchText) {
-    this.setState(function(state, props) {
-      let newFilteredCharacters = {};
-      let comparer = getSearchTypeComparer(state.filterType)
-      newFilteredCharacters = searchText.length === 0 ? characterData : Object.keys(characterData).reduce(function (filtered, key) {
-        if (comparer(searchText, key, characterData)) filtered[key] = characterData[key];
-        return filtered;
-      }, {});
-      console.log('newFilteredCharacters length: ' + Object.keys(newFilteredCharacters).length);
+ 
+  onSearchTextChange(searchText) {
+    this.setState(function(state) {
+      console.log('onSearchTextChange: ' + searchText);
+      let newFilteredCharacters = this.getUpdatedFilteredCharacterData(searchText, state.filterType, state.isFilteringForAvengersOnly);
       return {
+        searchText: searchText,
         filteredCharacterData: newFilteredCharacters
       };
     });
@@ -47,6 +46,28 @@ export class Root extends React.Component {
 
   onSearchTypeChange(searchType) {
     this.setState({'filterType': searchType});
+  }
+
+  onAvengersOnlyFilterChange() {
+    this.setState(function(state) {
+      let isFilteringForAvengersOnly = !state.isFilteringForAvengersOnly;
+      console.log('isFilteringForAvengersOnly: ' + isFilteringForAvengersOnly);
+      let newFilteredCharacters = this.getUpdatedFilteredCharacterData(state.searchText, state.filterType, isFilteringForAvengersOnly);
+      return {
+        'isFilteringForAvengersOnly': isFilteringForAvengersOnly,
+        filteredCharacterData: newFilteredCharacters
+      }
+    });
+  }
+
+  getUpdatedFilteredCharacterData(providedSearchText, filterType, isFilteringForAvengersOnly) {
+    let comparer = getSearchEvaluator(filterType)
+    let newFilteredCharacters = filterCharacterData(
+      providedSearchText, 
+      comparer, 
+      {isFilteringForAvengersOnly: isFilteringForAvengersOnly});
+    console.log('newFilteredCharacters length: ' + Object.keys(newFilteredCharacters).length);
+    return newFilteredCharacters;
   }
 
   render() {
@@ -59,7 +80,13 @@ export class Root extends React.Component {
           <MarvelSvg></MarvelSvg>
           <div className="secondary-header">Character listing from Marvel movies</div>
         </header>
-        <CharacterSearch onSearchChange={this.onSearchChange} onSearchTypeChange={this.onSearchTypeChange}></CharacterSearch>
+        <CharacterSearch 
+          searchText={this.state.searchText}
+          onSearchTextChange={this.onSearchTextChange} 
+          onSearchTypeChange={this.onSearchTypeChange}
+          isFilteringForAvengersOnly={this.state.isFilteringForAvengersOnly}
+          onAvengersOnlyFilterChange={this.onAvengersOnlyFilterChange}>
+        </CharacterSearch>
         <CharacterListing 
           filteredCharacterData={this.state.filteredCharacterData}
           selectedCharacterName={this.state.selectedCharacterName}
@@ -71,6 +98,9 @@ export class Root extends React.Component {
     );
   }
 }
+
+
+
 
 const domContainer = document.querySelector('#root');
 ReactDOM.render(e(Root), domContainer);

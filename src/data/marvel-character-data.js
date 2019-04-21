@@ -780,7 +780,7 @@ export const characterData = {
     "actors": ["Josh Brolin"],
     "description": "An intergalactic despot from Titan who collected the six Infinity Stones to inflict his will on all of reality.[27][28] Co-director Joe Russo said that after the events of Avengers: Infinity War, \"[Thanos has] succeeded in the thing he has set out to do. He's done. He did it. He's retired.\"[29] In addition to providing the voice for the character, Brolin performed motion capture on set.[30]",
     "movies": ["Avengers: Infinity War", "Avengers: Endgame"],
-    "isVillian": false,
+    "isVillian": true,
     "isHero": false
   },
   "Thor": {
@@ -802,7 +802,7 @@ export const characterData = {
     "description": "The leader and benefactor of the Avengers who is a self-described genius, billionaire, playboy, and philanthropist with electromechanical suits of armor of his own making.[3][4]",
     "movies": ["Iron Man", "Iron Man 2", "The Avengers", "Iron Man 3", "Avengers: Age of Ultron", "Captain America: Civil War", "Spider-Man: Homecoming", "Avengers: Infinity War", "Avengers: Endgame"],
     "isVillian": false,
-    "isHero": false
+    "isHero": true
   },
   "Trevor Slattery": {
     "actors": ["Ben Kingsley"],
