@@ -71,28 +71,36 @@ export class Root extends React.Component {
   }
 
   render() {
-    const footerStyle = {
-      'paddingTop': '10px'
+    const generalLeftPadding = {
+      'paddingLeft': '10px'
     };
+    const footerStyle = Object.assign({
+      'paddingTop': '10px'
+    }, generalLeftPadding);
     return (
       <div id="root">
-        <header>
+        <header style={generalLeftPadding}>
           <MarvelSvg></MarvelSvg>
           <div className="secondary-header">Character listing from Marvel movies</div>
         </header>
-        <CharacterSearch 
+        <CharacterSearch
+          generalLeftPadding={generalLeftPadding}
           searchText={this.state.searchText}
           onSearchTextChange={this.onSearchTextChange} 
           onSearchTypeChange={this.onSearchTypeChange}
           isFilteringForAvengersOnly={this.state.isFilteringForAvengersOnly}
           onAvengersOnlyFilterChange={this.onAvengersOnlyFilterChange}>
         </CharacterSearch>
-        <CharacterListing 
+        <CharacterListing
+          generalLeftPadding={generalLeftPadding}
           filteredCharacterData={this.state.filteredCharacterData}
           selectedCharacterName={this.state.selectedCharacterName}
           onSelectedCharacterChange={this.onSelectedCharacterChange}>
         </CharacterListing>
-        <CharacterDetails selectedCharacter={this.state.selectedCharacter}></CharacterDetails>
+        <CharacterDetails 
+          generalLeftPadding={generalLeftPadding}
+          selectedCharacter={this.state.selectedCharacter}>
+        </CharacterDetails>
         <footer style={footerStyle}>Fuse Code Camp 2019 - Introduction to the React Javascript library</footer>
       </div>
     );

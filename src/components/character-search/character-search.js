@@ -24,6 +24,9 @@ export class CharacterSearch extends React.Component {
   }
 
   render() {
+    const bottomPadding = {
+      'paddingBottom': '5px'
+    };
     const stretchStyling = {
       'width': '100%',
       'height': '100%'
@@ -32,7 +35,7 @@ export class CharacterSearch extends React.Component {
       "padding": "2px 10px"
     }, stretchStyling);
     return (
-      <div className="character-search">
+      <div className="character-search" style={bottomPadding}>
         <div>
           <input type="text" style={inputStyling} value={this.state.searchTextEntered} onChange={this.handleSearchTextChange} />
         </div>
@@ -40,7 +43,8 @@ export class CharacterSearch extends React.Component {
           <SearchSelector style={stretchStyling} onSearchTypeChange={this.handleSearchTypeChange}></SearchSelector>
         </div>
         <div>
-          <CharacterFiltering 
+          <CharacterFiltering
+            generalLeftPadding={this.props.generalLeftPadding}
             isFilteringForAvengersOnly={this.props.isFilteringForAvengersOnly}
             onAvengersOnlyFilterChange={this.props.onAvengersOnlyFilterChange}>
           </CharacterFiltering>

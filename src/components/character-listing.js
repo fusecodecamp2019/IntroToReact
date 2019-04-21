@@ -13,34 +13,30 @@ export class CharacterListing extends React.Component {
   }
 
   render() {
-    const styleForUlContainer = {
-      'overflowY': 'auto'
-    };
     const styleForUL = {
       'listStyle': 'none',
       'padding': 0,
-      'margin': 0,
-      'overflowY': 'auto'
+      'margin': 0
     };
-    const stylesForElement = {
+    const stylesForElement = Object.assign({
       'cursor': 'pointer',
-      'padding': '5px'
-    };
+      'paddingTop': '5px',
+      'paddingRight': '10px',
+      'paddingBottom': '5px'
+    }, this.props.generalLeftPadding);
     return (
-      <div className="character-listing">
-        <div style={styleForUlContainer}>
-          <ul style={styleForUL}>
-            {
-              Object.keys(this.props.filteredCharacterData).map((key) => {
-                if (key == this.props.selectedCharacterName) {
-                  return <li key={key} onClick={this.handleClick} className="character-selected" style={stylesForElement}>{key}</li>
-                } else {
-                  return <li key={key} onClick={this.handleClick} style={stylesForElement}>{key}</li>
-                }
-              })
-            }
-          </ul>
-        </div>
+      <div className="character-listing" style={this.props.style}>
+        <ul style={styleForUL}>
+          {
+            Object.keys(this.props.filteredCharacterData).map((key) => {
+              if (key == this.props.selectedCharacterName) {
+                return <li key={key} onClick={this.handleClick} className="character-selected" style={stylesForElement}>{key}</li>
+              } else {
+                return <li key={key} onClick={this.handleClick} style={stylesForElement}>{key}</li>
+              }
+            })
+          }
+        </ul>
       </div>
     );
   }

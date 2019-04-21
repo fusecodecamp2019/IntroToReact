@@ -12,8 +12,11 @@ export class CharacterFiltering extends React.Component {
   }
 
   render() {
+    const baseStyle = Object.assign({
+      'paddingTop': '5px'
+    }, this.props.generalLeftPadding);
     return (
-      <div className="character-filtering">
+      <div className="character-filtering" style={baseStyle}>
       <label>
           Avengers only
           <input

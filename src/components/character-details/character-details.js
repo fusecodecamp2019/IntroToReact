@@ -8,18 +8,16 @@ export class CharacterDetails extends React.Component {
   }
 
   render() {
-    const sectionStyling = {
-    };
     if (this.props.selectedCharacter) {
       return (
-        <main className="character-details">
+        <main className="character-details" style={this.props.generalLeftPadding}>
           <h2>{this.props.selectedCharacter.name}</h2>
           <p>{this.props.selectedCharacter.description}</p>
           <article>
-            <section style={sectionStyling}>
+            <section>
               <ActorListing actorListing={this.props.selectedCharacter.actors}></ActorListing>
             </section>
-            <section style={sectionStyling}>
+            <section>
              <MovieAppearances movieListing={this.props.selectedCharacter.movies}></MovieAppearances>
             </section>
           </article>
