@@ -25,7 +25,7 @@ export class CharacterListing extends React.Component {
       'paddingBottom': '5px'
     }, this.props.generalLeftPadding);
     return (
-      <div className="character-listing" style={this.props.style}>
+      <aside className="character-listing" style={this.props.style}>
         <ul style={styleForUL}>
           {
             Object.keys(this.props.filteredCharacterData).map((key) => {
@@ -37,7 +37,7 @@ export class CharacterListing extends React.Component {
             })
           }
         </ul>
-      </div>
+      </aside>
     );
   }
 }

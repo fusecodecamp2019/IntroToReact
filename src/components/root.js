@@ -110,5 +110,5 @@ export class Root extends React.Component {
 
 
 
-const domContainer = document.querySelector('#root');
+const domContainer = document.querySelector('#react-root');
 ReactDOM.render(e(Root), domContainer);
