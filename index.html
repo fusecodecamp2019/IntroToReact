@@ -8,6 +8,7 @@
   <link rel="icon" href="/favicon.ico">
   <title>Introduction to the React Javascript library</title>
   <link rel="stylesheet" href="app-layout.css">
+  <link rel="stylesheet" href="static-app.css">
 
   <script src="https://code.jquery.com/jquery-3.4.0.min.js"
     integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous">
@@ -16,7 +17,7 @@
 
 <body>
   <div id="root">
-    <header style="padding-left: 10px;">
+    <header>
       <svg width="130" height="52" xmlns="http://www.w3.org/2000/svg">
         <rect fill="#EC1D24" width="100%" height="100%"></rect>
         <path fill="#FEFEFE"
@@ -28,19 +29,19 @@
       </svg>
       <div class="secondary-header">Character listing from Marvel movies</div>
     </header>
-    <div class="character-search" style="padding-bottom: 5px;">
+    <div class="character-search">
       <div>
-        <input type="text" style="padding: 2px 10px; width: 100%; height: 100%;"/>
+        <input type="text"/>
       </div>
       <div>
-        <select style="width: 100%; height: 100%;">
+        <select>
           <option value="Search by character name">Search by character name</option>
           <option value="Search by movie name">Search by movie name</option>
           <option value="Search by actor name">Search by actor name</option>
         </select>
       </div>
       <div>
-        <div class="character-filtering" style="padding-top: 5px; padding-left: 10px;">
+        <div class="character-filtering">
           <label>
             Avengers only
             <input name="avengersOnlyFilter" type="checkbox">
@@ -49,8 +50,34 @@
       </div>
     </div>
     <aside class="character-listing">
-      <ul style="list-style: none; padding: 0px; margin: 0px;">
-        <li style="cursor: pointer; padding: 5px 10px;">{key}</li>
+      <ul>
+        <li>Bruce Banner / Hulk</li>
+        <li>Drax the Destroyer</li>
+        <li>Eitri</li>
+        <li>Gamora</li>
+        <li>Groot</li>
+        <li>Heimdall</li>
+        <li>James "Rhodey" Rhodes / War Machine</li>
+        <li>James Buchanan "Bucky" Barnes / Winter Soldier</li>
+        <li>Loki</li>
+        <li>Mantis</li>
+        <li>Natasha Romanoff / Black Widow</li>
+        <li>Nebula</li>
+        <li>Peter Parker / Spider-Man</li>
+        <li>Peter Quill / Star-Lord</li>
+        <li>Rocket</li>
+        <li>Sam Wilson / Falcon</li>
+        <li>Stephen Strange</li>
+        <li>Steve Rogers / Captain America</li>
+        <li>T'Challa / Black Panther</li>
+        <li>Taneleer Tivan / The Collector</li>
+        <li>Thanos</li>
+        <li>Thor</li>
+        <li>Tony Stark / Iron Man</li>
+        <li>Virginia "Pepper" Potts</li>
+        <li>Vision</li>
+        <li>Wanda Maximoff / Scarlet Witch</li>
+        <li>Wong</li>
       </ul>
     </aside>
     <main class="character-details">
@@ -61,8 +88,7 @@
         <section>…</section>
       </article>
     </main>
-    <footer style="padding-top: 10px; padding-left: 10px;">Fuse Code Camp 2019 - Introduction to the React Javascript
-      library</footer>
+    <footer>Fuse Code Camp 2019 - Introduction to the React Javascript library</footer>
   </div>
 </body>
 
