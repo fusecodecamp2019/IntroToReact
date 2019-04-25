@@ -25,6 +25,8 @@ Installation requirements
 
 3. Run `npm start`
 
+4. Open your browser of choice to http://localhost:8080/
+
 Installation notes (see the package.json file for your npm dependencies):
 - (Core focus) React, the core library we are focusing on for this sesssion.
 - react-dom, a supplemental library that helps React work with our HTML page.
