@@ -1,4 +1,6 @@
 'use strict';
+import { CharacterItem } from './character-item.js';
+import { AvengersIcon } from '../avengers-icon.js';
 
 export class CharacterListing extends React.Component {
   constructor(props) {
@@ -9,6 +11,7 @@ export class CharacterListing extends React.Component {
   }
 
   handleClick(e) {
+    console.log('handleClick - CharacterListing');
     this.props.onSelectedCharacterChange(e.target.textContent);
   }
 
@@ -29,11 +32,20 @@ export class CharacterListing extends React.Component {
         <ul style={styleForUL}>
           {
             Object.keys(this.props.filteredCharacterData).map((key) => {
-              if (key == this.props.selectedCharacterName) {
-                return <li key={key} onClick={this.handleClick} className="character-selected" style={stylesForElement}>{key}</li>
-              } else {
-                return <li key={key} onClick={this.handleClick} style={stylesForElement}>{key}</li>
+              let supplementalContent;
+              if (this.props.filteredCharacterData[key].isHero) {
+                supplementalContent = <AvengersIcon></AvengersIcon>;
               }
+              return (
+                <CharacterItem
+                  key={key}
+                  characterName={key} 
+                  onSelectedCharacterChange={this.handleClick} 
+                  style={stylesForElement}
+                  isSelected={key == this.props.selectedCharacterName}>
+                  {supplementalContent}
+                </CharacterItem>
+              );
             })
           }
         </ul>

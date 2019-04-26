@@ -1,7 +1,7 @@
 'use strict';
 import { characterData } from '../data/marvel-character-data.js';
 import { MarvelSvg } from './marvel-svg.js';
-import { CharacterListing } from './character-listing.js';
+import { CharacterListing } from './character-listing/character-listing.js';
 import { SearchTypes, getSearchEvaluator, filterCharacterData } from './character-search/search-helpers.js';
 import { CharacterSearch } from './character-search/character-search.js';
 import { CharacterDetails } from './character-details/character-details.js';

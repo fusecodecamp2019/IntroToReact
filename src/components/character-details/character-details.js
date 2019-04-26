@@ -1,19 +1,22 @@
 'use strict';
 import { MovieAppearances } from './movie-appearances.js';
 import { ActorListing } from './actor-listing.js';
+import { AvengersIcon } from '../avengers-icon.js';
 
 export class CharacterDetails extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  // <img src="/dist/assets/avengers-logo.jpg" alt="Avengers logo" height="30" width="30"></img>
-
   render() {
     if (this.props.selectedCharacter) {
+      let supplementalContent;
+      if (this.props.selectedCharacter.isHero) {
+        supplementalContent = <AvengersIcon></AvengersIcon>;
+      }
       return (
         <main className="character-details" style={this.props.generalLeftPadding}>
-          <h2>{this.props.selectedCharacter.name}</h2>
+          <h2>{this.props.selectedCharacter.name}{supplementalContent}</h2>
           <p>{this.props.selectedCharacter.description}</p>
           <article>
             <section>
