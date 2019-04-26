@@ -30,6 +30,10 @@ header {
   display: none;
 }
 
+.character-details, .character-details-hidden {
+  padding-left: 10px;
+}
+
 main {
   padding-left: 10px;
 }

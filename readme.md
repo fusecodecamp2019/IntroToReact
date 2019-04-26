@@ -39,3 +39,16 @@ Installation notes (see the package.json file for your npm dependencies):
 A good reference point in setting up a basic page with React:
 https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx
 
+### 2. Orientation
+
+Currently http://localhost:8080/ is serving the index.html file in the root directory.  This html file is currently providing information on characters from the first Avengers movie.  It uses a little bit of JQuery to hide and show sections of html based on user's clicking in the left-hand pane.
+
+Talking points:
+- There is a decent amount of repetitive html for each of the characters from the movie.
+- There is a sprinkling of raw Javascript that leverages JQuery to hide and show parts of the page based on user clicks.
+- This page is decent for a simple example.  But if more complexity were to be added to this page it can be hard to manage using the current pattern.  If I were to have to expand this page I would start by expanding the Javascript to reduce the repetition by taking the data and building 
+- 
+
+High level goals today:
+
+
