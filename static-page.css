@@ -1,0 +1,43 @@
+#root {
+  display: grid;
+  grid-template-columns: 275px auto;
+  grid-template-rows: 80px auto 40px;
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+}
+
+header {
+  padding-left: 10px;
+}
+
+.character-listing ul {
+  list-style: none; padding: 0px; margin: 0px;
+}
+
+.character-listing ul li {
+  cursor: pointer; padding: 5px 10px;
+}
+
+.character-details-hidden {
+  display: none;
+}
+
+.character-details, .character-details-hidden {
+  padding-left: 10px;
+}
+
+main {
+  padding-left: 10px;
+}
+
+footer {
+  padding-top: 10px; padding-left: 10px;
+}
