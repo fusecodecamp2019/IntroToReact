@@ -1,16 +1,6 @@
+# Course layout
 
-
-#### High level TODO's
-1. Create data model spec
-2. Create data model for Star Wars
-3. Create data model for Avengers
-4. Course curriculum for the day
-5. Build Raw HTML app to demonstrate functionality when unmanaged.
-
-## Course layout
-
-### 1. Setup
-
+## 1. Setup
 Installation requirements
 - VSCode, https://code.visualstudio.com/download
 - NodeJS, https://nodejs.org/en/download/
@@ -36,19 +26,57 @@ Installation notes (see the package.json file for your npm dependencies):
 
 - http-server, A simple http server to provide local web hosting.  (There's a lot of tools you can do this with, I am picking this as it is one I most frequently use for my own efforts)
 
-A good reference point in setting up a basic page with React:
-https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx
+-  concurrently, Let's us run babel as well as http-server at the same time through a single command (npm start)
 
-### 2. Orientation
-
+## 2. Orientation
 Currently http://localhost:8080/ is serving the index.html file in the root directory.  This html file is currently providing information on characters from the first Avengers movie.  It uses a little bit of JQuery to hide and show sections of html based on user's clicking in the left-hand pane.
 
 Talking points:
 - There is a decent amount of repetitive html for each of the characters from the movie.
 - There is a sprinkling of raw Javascript that leverages JQuery to hide and show parts of the page based on user clicks.
-- This page is decent for a simple example.  But if more complexity were to be added to this page it can be hard to manage using the current pattern.  If I were to have to expand this page I would start by expanding the Javascript to reduce the repetition by taking the data and building 
-- 
+- This page is decent for a simple example.  But if more complexity were to be added to this page it can be hard to manage using the current pattern.  If I were to have to expand this page I would start by moving the repetitive html into a generator in Javascript --> and that is exactly what the React library is built for.
 
-High level goals today:
+## 3. Add React to the page
+This repository uses npm to download and make whatever Javascript libraries you want available.  You ran `npm install` earlier which actually downloaded the react library we need into the "node_modules" directory.  
+
+Add the below two script tags to the index.html page.  These need to be added in between the `<head>...</head>` tags.
+```
+  <script defer src="node_modules/react/umd/react.development.js"></script>
+  <script defer src="node_modules/react-dom/umd/react-dom.development.js"></script>
+```
 
 
+A good reference point in setting up a basic page with React:
+https://reactjs.org/docs/add-react-to-a-website.html
+
+Not much of a bang here but needed for the next step...
+
+## 4. Add your first component to the page
+Right-click on the page and inspect the `<header></header>` tag.  You should see highlighting for the grid being used to layout the page.  In this section we are going to move the header into a component.  The goal here is just to get you familiar with how to create and add a component to a page.
+
+1. Create a file called "header.js" in the "\src\components\" directory.
+2. In the new file, declare a class and called "Header" that extends the "React.Component" class that is provided by the React library.  This class needs to have a "render" function like below.
+```
+class Header extends React.Component {
+  render() {
+    return (
+
+    );
+  }
+}
+```
+3. Move the contents of the `<header></header>` tag into the return value of of the Header.render function you created in the last step.
+4. Add the below 2 statements at the end of the "header.js" file.
+```
+const domContainer = document.querySelector('header');
+ReactDOM.render(React.createElement(Header), domContainer);
+```
+5. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
+```
+<script defer src="dist/components/header.js"></script>
+```
+
+#### (Review what we have just done to make sure that everyone understands what is going on)
+
+## 5. Move the footer into a component (rinse and repeat)
+Repeat the process from section 4 with the footer for the page just to ensure you grasp the process of creating a React component.
