@@ -11,11 +11,11 @@ class Header extends React.Component {
           <path fill="#FEFEFE" d="M31.5 48V4H21.291l-3.64 22.735L14.102 4H4v44h8V26.792L15.577 48h4.229l3.568-21.208V48z">
           </path>
         </svg>
-        <div class="secondary-header">Character listing from Marvel movies</div>
+        <div className="secondary-header">Character listing from Marvel movies</div>
       </div>
     );
   }
 }
 
-const domContainer = document.querySelector('header');
-ReactDOM.render(React.createElement(Header), domContainer);
+const headerDomContainer = document.querySelector('header');
+ReactDOM.render(React.createElement(Header), headerDomContainer);
