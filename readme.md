@@ -87,6 +87,8 @@ For this next effort we are going to move the *first* of the `<main></main>` tag
 ## 7. Character details with data binding (for Bruce Banner).
 In building the original static webpage I sourced the data from the file '/dist/data/marvel-movie-data.js'.  Import this data into the new character details component and display Bruce Banners information from that data instead as raw values.
 
+Review 
+
 1. Import the data file by adding the below line to the top of your character details component.
 ```
 import { characterDataListing } from '../data/marvel-character-data.js';
@@ -106,4 +108,21 @@ import { characterDataListing } from '../data/marvel-character-data.js';
         <h2>{this.characterName}</h2>
         <p>{this.characterData.description}</p>
 ```
-4. Verify that you see Bruce's information properly on the screen.
+4. Verify that you still see Bruce's information properly on the screen.
+
+*We're going to stop here and NOT introduce data binding to the actor listing or movie appearance areas of this component as this now provides the opportunity for more component extraction.*
+
+## 8 Nesting components (actor listing)
+Let's take the actor listing within the character details component and extract it into its own component.  This will almost be the same as our earlier work with the header and footer.  Then we will have the character details component use the new actor listing component.
+
+1. Create the component file.
+2. Create the class for the component along with it's render function.
+3. Move the source HTML from the character details component into the render function.
+(1-3 is a process you should now be familiar with.  Now for the new stuff.)
+
+4. At the top of the character details component file import the actor listing component.
+```
+import { ActorListing } from './actor-listing.js';
+```
+5. In the render function for the character details component replace the actor listing raw HTML with the actor listing component tag `<ActorListing></ActorListing>`.
+6. Verify that you still see Bruce's information properly on the screen.

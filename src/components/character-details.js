@@ -1,5 +1,6 @@
 'use strict';
 import { characterDataListing } from '../data/marvel-character-data.js';
+import { ActorListing } from './actor-listing.js';
 
 class CharacterDetails extends React.Component {
   constructor(props) {
@@ -17,13 +18,7 @@ class CharacterDetails extends React.Component {
         <p>{this.characterData.description}</p>
         <article>
           <section>
-            <div className="actor-listing">
-              <h4>Actor Listing</h4>
-              <ul>
-                <li>Edward Norton</li>
-                <li>Mark Ruffalo</li>
-              </ul>
-            </div>
+            <ActorListing></ActorListing>
           </section>
           <section>
             <div className="movie-appearances">
