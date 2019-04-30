@@ -1,12 +1,20 @@
+'use strict';
+import { characterDataListing } from '../data/marvel-character-data.js';
+
 class CharacterDetails extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    // This is temporary so we can componentize section of the page using a specific character
+    this.characterName = 'Bruce Banner / Hulk';
+    this.characterData = characterDataListing[this.characterName];
+  }
+
   render() {
     return (
       <div>
-        <h2>Bruce Banner / Hulk</h2>
-        <p>An Avenger and a genius scientist who, because of exposure to gamma radiation, transforms into a monster when
-          enraged or agitated.[7] The character concludes a story arc that was established in Thor: Ragnarok and
-          Avengers:
-          Infinity War.[8]</p>
+        <h2>{this.characterName}</h2>
+        <p>{this.characterData.description}</p>
         <article>
           <section>
             <div className="actor-listing">

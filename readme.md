@@ -71,9 +71,9 @@ class Header extends React.Component {
 const domContainer = document.querySelector('header');
 ReactDOM.render(React.createElement(Header), domContainer);
 ```
-5. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
+1. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
 ```
-<script defer src="dist/components/header.js"></script>
+<script defer type="module" src="dist/components/header.js"></script>
 ```
 
 #### (Review what we have just done to make sure that everyone understands what is going on)
@@ -81,8 +81,29 @@ ReactDOM.render(React.createElement(Header), domContainer);
 ## 5. Footer component migration (rinse and repeat)
 Repeat the process from section 4 with the footer for the page just to ensure you grasp the process of creating a React component.
 
-## 6. Character details component migration (for Bruce Banner)
-For this next effort we are going to move the *first* of the `<main></main>` tags that have the "character-details-hidden" class into a new component (Bruce Banner).  When we have fully migrated this to a component we will expand this to do the same for its siblings.
+## 6. Character details component migration (for Bruce Banner).
+For this next effort we are going to move the *first* of the `<main></main>` tags that have the "character-details-hidden" class into a new component (Bruce Banner).  When we have fully migrated this to a component we will expand this to do the same for its siblings.  Use the same process you did with the header and footer for this effort.  Don't forget the "className" attribute renaming with this step.  Verify that the component renders properly on the page.  
+  
+## 7. Character details with data binding (for Bruce Banner).
+In building the original static webpage I sourced the data from the file '/dist/data/marvel-movie-data.js'.  Import this data into the new character details component and display Bruce Banners information from that data instead as raw values.
 
-Goals for this step:
-1. Similar to the header and footer create a new component to provide character details.  In the render method start by literally copy and pasting the first of the `<main></main>` tags you are componentizing.  Use the same process you did with the header and footer for this effort.  Don't forget the "className" attribute renaming with this step.  Verify that the component renders properly on the page.
+1. Import the data file by adding the below line to the top of your character details component.
+```
+import { characterDataListing } from '../data/marvel-character-data.js';
+```
+2. Once done, add a constructor to your CharacterDetails class like below.
+```
+  constructor(props) {
+    super(props);
+
+    // This is temporary so we can componentize this section of the page using a specific character
+    this.characterName = 'Bruce Banner / Hulk';
+    this.characterData = characterDataListing[this.characterName];
+  }
+```
+3. You can then have information from the character bound to fields in the JSX.
+```
+        <h2>{this.characterName}</h2>
+        <p>{this.characterData.description}</p>
+```
+4. Verify that you see Bruce's information properly on the screen.
