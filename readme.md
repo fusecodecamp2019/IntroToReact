@@ -51,7 +51,7 @@ https://reactjs.org/docs/add-react-to-a-website.html
 
 Not much of a bang here but needed for the next step...
 
-## 4. Add your first component to the page
+## 4. Add your first component to the page (header)
 Right-click on the page and inspect the `<header></header>` tag.  You should see highlighting for the grid being used to layout the page.  In this section we are going to move the header into a component.  The goal here is just to get you familiar with how to create and add a component to a page.
 
 1. Create a file called "header.js" in the "\src\components\" directory.
@@ -65,7 +65,7 @@ class Header extends React.Component {
   }
 }
 ```
-3. Move the contents of the `<header></header>` tag into the return value of of the Header.render function you created in the last step.
+3. Move the contents of the `<header></header>` tag into the return value of of the Header.render function you created in the last step.  Note that JSX syntax does not agree with the use of the "class" attribute.  You will need to rename that attribute to "className".
 4. Add the below 2 statements at the end of the "header.js" file.
 ```
 const domContainer = document.querySelector('header');
@@ -78,19 +78,11 @@ ReactDOM.render(React.createElement(Header), domContainer);
 
 #### (Review what we have just done to make sure that everyone understands what is going on)
 
-## 5. Move the footer into a component (rinse and repeat)
+## 5. Footer component migration (rinse and repeat)
 Repeat the process from section 4 with the footer for the page just to ensure you grasp the process of creating a React component.
 
-## 6. Move the character details into components
-For this next effort we are going to move all of the `<main></main>` tags that have the "character-details-hidden" class into components.  Here, while the structure of these tags are identical the data content varies.  
-
-The person who wrote this webpage used data from '/dist/data/marvel-character-data.js' to manually build the data on the current page.  For this section we are going to try and build a component that accepts the name of the character as well as its related data.
+## 6. Character details component migration (for Bruce Banner)
+For this next effort we are going to move the *first* of the `<main></main>` tags that have the "character-details-hidden" class into a new component (Bruce Banner).  When we have fully migrated this to a component we will expand this to do the same for its siblings.
 
 Goals for this step:
-1. Similar to the header and footer create a new component to provide character details.  In the render method start by literally copy and pasting the first of the `<main></main>` tags you are componentizing.  Use the same process you did with the header and footer for this effort.
-2. Make the character data from '/dist/data/marvel-character-data.js' available as a global variable by adding a `<script></script>` tag to the top of the page for this file.  Make sure this addition is above your components.
-
-
-
-As a reference on how parameters are passed to components see:
-https://reactjs.org/docs/components-and-props.html
+1. Similar to the header and footer create a new component to provide character details.  In the render method start by literally copy and pasting the first of the `<main></main>` tags you are componentizing.  Use the same process you did with the header and footer for this effort.  Don't forget the "className" attribute renaming with this step.  Verify that the component renders properly on the page.
