@@ -1,4 +1,4 @@
-class Footer extends React.Component {
+export class Footer extends React.Component {
   render() {
     return (
       <div>Fuse Code Camp 2019 - Introduction to the React Javascript library</div>

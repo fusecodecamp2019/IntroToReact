@@ -29,17 +29,17 @@ Installation notes (see the package.json file for your npm dependencies):
 -  concurrently, Let's us run babel as well as http-server at the same time through a single command (npm start)
 
 ## 2. Orientation
-Currently http://localhost:8080/ is serving the index.html file in the root directory.  This html file is currently providing information on characters from the first Avengers movie.  It uses a little bit of JQuery to hide and show sections of html based on user's clicking in the left-hand pane.
+Currently http://localhost:8080/ is serving the index.HTML file in the root directory.  This HTML file is currently providing information on characters from the first Avengers movie.  It uses a little bit of JQuery to hide and show sections of HTML based on user's clicking in the left-hand pane.
 
 Talking points:
-- There is a decent amount of repetitive html for each of the characters from the movie.
+- There is a decent amount of repetitive HTML for each of the characters from the movie.
 - There is a sprinkling of raw Javascript that leverages JQuery to hide and show parts of the page based on user clicks.
-- This page is decent for a simple example.  But if more complexity were to be added to this page it can be hard to manage using the current pattern.  If I were to have to expand this page I would start by moving the repetitive html into a generator in Javascript --> and that is exactly what the React library is built for.
+- This page is decent for a simple example.  But if more complexity were to be added to this page it can be hard to manage using the current pattern.  If I were to have to expand this page I would start by moving the repetitive HTML into a generator in Javascript --> and that is exactly what the React library is built for.
 
 ## 3. Add React to the page
 This repository uses npm to download and make whatever Javascript libraries you want available.  You ran `npm install` earlier which actually downloaded the react library we need into the "node_modules" directory.  
 
-Add the below two script tags to the index.html page.  These need to be added in between the `<head>...</head>` tags.
+Add the below two script tags to the index.HTML page.  These need to be added in between the `<head>...</head>` tags.
 ```
   <script defer src="node_modules/react/umd/react.development.js"></script>
   <script defer src="node_modules/react-dom/umd/react-dom.development.js"></script>
@@ -47,7 +47,7 @@ Add the below two script tags to the index.html page.  These need to be added in
 
 
 A good reference point in setting up a basic page with React:
-https://reactjs.org/docs/add-react-to-a-website.html
+https://reactjs.org/docs/add-react-to-a-website.HTML
 
 Not much of a bang here but needed for the next step...
 
@@ -71,7 +71,7 @@ class Header extends React.Component {
 const domContainer = document.querySelector('header');
 ReactDOM.render(React.createElement(Header), domContainer);
 ```
-1. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
+1. Add a `<script></script>` tag to import your header component into the index.HTML page.  Place this script tag as the last line inside the `<header></header>` tag.
 ```
 <script defer type="module" src="dist/components/header.js"></script>
 ```
@@ -156,27 +156,68 @@ render() {
 3. Verify that you still see Bruce's information properly on the screen.
 
 Some documentation from React about this section that might be worth reviewing:
-https://reactjs.org/docs/components-and-props.html
+https://reactjs.org/docs/components-and-props.HTML
 
 ## 10. Nesting components with data binding (movie appearances - rinse and repeat)
+
+TODO: I need to have this along with section 8-9 re-use the same component.
+
 Now as a means of making sure you grasp what we have done.  The character details component also has a section on movie appearances that needs to be extracted out into a nested component and passed the appropriate data bindings.  In this section try to complete that work.  Look back at the notes from sections 8 and 9 for anything that you might not remember.
 
 Once done take a moment and look over what you've done so far.  This is a pretty good milestone for our work today.  
 
 ## 11. One last component - Character listing migration
-You may not realize this but we have one last component left and then the whole webpage will be in React.  So look back at the index.html file.  We are going to move the `<aside></aside>` tag into a new character listing component.  
+You may not realize this but we have one last component left and then the whole webpage will be in React.  So look back at the index.HTML file.  We are going to move the `<aside></aside>` tag into a new character listing component.  
 
 1. Migrate the HTML for this into a new component.
 
-Note: this component is being injected into an html page, not another component.  You will need to perform the below two steps to accomplish this.
+Note: this component is being injected into an HTML page, not another component.  You will need to perform the below two steps to accomplish this.
 2. Add the below 2 statements at the end of the component file.
 ```
 const characterListingDomContainer = document.querySelector('.character-listing');
 ReactDOM.render(React.createElement(CharacterListing), characterListingDomContainer);
 ```
-3. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
+3. Add a `<script></script>` tag to import your header component into the index.HTML page.  Place this script tag as the last line inside the `<header></header>` tag.
 ```
 <script defer type="module" src="dist/components/character-listing.js"></script>
 ```
 4. Verify that you still see the character listing on the screen.
 
+## 12. Go React or go home
+It's that time.  We're going to move the whole page into React in this section.  Now this will have the most steps compared to earlier work so please take your time and if you get stuck reach out to a coach.
+
+1. Create a new component called "root".
+2. Open the webpage (index.HTML)
+3. Inside the `<head></head>` tag, remove the `<script></script>` tags for all of the React components present and only have the root component injected here.
+In other words:
+```
+<head>
+  ...
+
+  <!-- DELETE THESE LINES -->
+  <script defer type="module" src="dist/components/header.js"></script>
+  <script defer type="module" src="dist/components/footer.js"></script>
+  <script defer type="module" src="dist/components/character-details.js"></script>
+  <script defer type="module" src="dist/components/character-listing.js"></script>
+
+  <!-- ADD THE ROOT COMPONENT BELOW -->
+  <script defer type="module" src="dist/components/root.js"></script>
+</head>
+```
+4. Cut and paste the `<div id="root"></div>` tag from the webpage along with its contents into the new root component's render method.
+5. Update the body of your webpage to have only the below content
+```
+<body>
+  <div id="react-root"></div>
+</body>
+```
+6. Add the below 2 statements at the end of the root component file.
+```
+const reactRootDomContainer = document.querySelector('#react-root');
+ReactDOM.render(React.createElement(Root), reactRootDomContainer);
+```
+
+At this point when trying to view this webpage you will see errors as the root component doesn't like some particulars with the HTML you placed in its render method.  To address this perform the following.
+
+7. In the root component, do a replace all for the text "class=" to become "className=".
+8. When trying to view the page now you should see the layout with NO CONTENT...  this is fine.

@@ -3,7 +3,7 @@ import { characterDataListing } from '../data/marvel-character-data.js';
 import { ActorListing } from './actor-listing.js';
 import { MovieAppearances } from './movie-appearances.js';
 
-class CharacterDetails extends React.Component {
+export class CharacterDetails extends React.Component {
   constructor(props) {
     super(props);
     
