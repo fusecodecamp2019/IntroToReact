@@ -163,5 +163,20 @@ Now as a means of making sure you grasp what we have done.  The character detail
 
 Once done take a moment and look over what you've done so far.  This is a pretty good milestone for our work today.  
 
+## 11. One last component - Character listing migration
+You may not realize this but we have one last component left and then the whole webpage will be in React.  So look back at the index.html file.  We are going to move the `<aside></aside>` tag into a new character listing component.  
 
+1. Migrate the HTML for this into a new component.
+
+Note: this component is being injected into an html page, not another component.  You will need to perform the below two steps to accomplish this.
+2. Add the below 2 statements at the end of the component file.
+```
+const characterListingDomContainer = document.querySelector('.character-listing');
+ReactDOM.render(React.createElement(CharacterListing), characterListingDomContainer);
+```
+3. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
+```
+<script defer type="module" src="dist/components/character-listing.js"></script>
+```
+4. Verify that you still see the character listing on the screen.
 
