@@ -158,3 +158,10 @@ render() {
 Some documentation from React about this section that might be worth reviewing:
 https://reactjs.org/docs/components-and-props.html
 
+## 10. Nesting components with data binding (movie appearances - rinse and repeat)
+Now as a means of making sure you grasp what we have done.  The character details component also has a section on movie appearances that needs to be extracted out into a nested component and passed the appropriate data bindings.  In this section try to complete that work.  Look back at the notes from sections 8 and 9 for anything that you might not remember.
+
+Once done take a moment and look over what you've done so far.  This is a pretty good milestone for our work today.  
+
+
+
