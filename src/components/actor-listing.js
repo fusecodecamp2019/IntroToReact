@@ -4,8 +4,11 @@ export class ActorListing extends React.Component {
       <div className="actor-listing">
         <h4>Actor Listing</h4>
         <ul>
-          <li>Edward Norton</li>
-          <li>Mark Ruffalo</li>
+          {
+            this.props.actors.map((actor) => {
+              return <li key={actor}>{actor}</li>
+            })
+          }
         </ul>
       </div>
     );

@@ -87,8 +87,6 @@ For this next effort we are going to move the *first* of the `<main></main>` tag
 ## 7. Character details with data binding (for Bruce Banner).
 In building the original static webpage I sourced the data from the file '/dist/data/marvel-movie-data.js'.  Import this data into the new character details component and display Bruce Banners information from that data instead as raw values.
 
-Review 
-
 1. Import the data file by adding the below line to the top of your character details component.
 ```
 import { characterDataListing } from '../data/marvel-character-data.js';
@@ -126,3 +124,37 @@ import { ActorListing } from './actor-listing.js';
 ```
 5. In the render function for the character details component replace the actor listing raw HTML with the actor listing component tag `<ActorListing></ActorListing>`.
 6. Verify that you still see Bruce's information properly on the screen.
+
+## 9. Nesting components with data binding
+Lets get rid of that raw text in the HTML for the actor listing component and pass the actual data.
+
+All React components have an object called **props** automatically setup to provide any properties that the parent might provide.  This section will leverage that to pass the data from the character details component to the actor listing component.
+
+Also take a glance at the '/dist/data/marvel-movie-data.js' file and notice that each character has an "actors" property handily available with our needed data.
+
+1. In the character details component, go back to that `<ActorListing></ActorListing>` tag.  Update that tag to have an "actors" property that will take the "actors" property from our character data.
+```
+<ActorListing actors={this.characterData.actors}></ActorListing>
+```
+2. Now go into our actor listing component.  In the we're going take this "actors" property (this.props.actors) and make it build our JSX.
+```
+render() {
+  return (
+    <div className="actor-listing">
+      <h4>Actor Listing</h4>
+      <ul>
+        {
+          this.props.actors.map((actor) => {
+            return <li key={actor}>{actor}</li>
+          })
+        }
+      </ul>
+    </div>
+  );
+}
+```
+3. Verify that you still see Bruce's information properly on the screen.
+
+Some documentation from React about this section that might be worth reviewing:
+https://reactjs.org/docs/components-and-props.html
+

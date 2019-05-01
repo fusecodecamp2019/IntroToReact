@@ -18,7 +18,7 @@ class CharacterDetails extends React.Component {
         <p>{this.characterData.description}</p>
         <article>
           <section>
-            <ActorListing></ActorListing>
+            <ActorListing actors={this.characterData.actors}></ActorListing>
           </section>
           <section>
             <div className="movie-appearances">
