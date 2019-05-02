@@ -110,7 +110,7 @@ import { characterDataListing } from '../data/marvel-character-data.js';
 
 *We're going to stop here and NOT introduce data binding to the actor listing or movie appearance areas of this component as this now provides the opportunity for more component extraction.*
 
-## 8 Nesting components (actor listing)
+## 8. Nesting components (actor listing)
 Let's take the actor listing within the character details component and extract it into its own component.  This will almost be the same as our earlier work with the header and footer.  Then we will have the character details component use the simple listing component.
 
 1. Create the component file, call it "simple-listing".
