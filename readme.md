@@ -248,11 +248,10 @@ Once this is done the page should appear as it did before but is now moved entir
 
 # The goal of the next few sections are to make our components talk to one another so that we can move toward making this page more dynamic in what it renders to the page.
 
-## 15. Making the character details leverage a "selectedCharacter" parameter
+## 15. Making the character details component leverage a "selectedCharacter" parameter
 You might have noticed in the JSX for the root component that there is `<main></main>` tag repeated several times and that our character details component has only address the content for one of these tags.  Let's address that concern here.
 
-##### In the character details component:
-1. Remove this line in the imports at the top of the file
+1. In the character details component remove this line in the imports at the top of the file
 ```
 import { characterDataListing } from '../data/marvel-character-data.js';
 ```
@@ -264,90 +263,54 @@ this.characterData = characterDataListing[this.characterName];
 ```
 3. Replace all instances of "this.characterName" with "this.props.characterName".
 4. Replace all instances of "this.characterData" with "this.props.characterData".
+5. In the render function.  Add an if statement so that when this.props.characterName is defined it returns the current JSX.  Otherwise it should return `<div>(No selection has been made)</div>`.
+```
+  render() {
+    if (this.props.characterName) {
+      return (
+        ...
+      );
+    }
+    return <div>(No selection has been made)</div>;
+  }
+```
+6. Look at the webpage in the browser.  The content for Bruce Banner should say "(No selection has been made)" for now.
 
-##### In the root component:
-5. Add this line in the imports at the top of the file
+## 16. Introducing state into the root component
+Our root component is going to orchestrate change in the application.  To accomplish this let's introduce state here and then let the nest component bind to this information and notify the root component when there is a change.
+
+Something worth covering:
+https://reactjs.org/docs/state-and-lifecycle.html
+
+1. In the constructor for the root component set the state object to have the 2 properties below.
 ```
-import { characterDataListing } from '../data/marvel-character-data.js';
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedCharacterName: 'Bruce Banner / Hulk',
+      selectedCharacter: characterDataListing['Bruce Banner / Hulk']
+    };
+  }
 ```
-6. Componentize all of the `<main></main>` tags
-(Just copy and paste this otherwise it won't be very fun for you in this step)
+2. In the JSX for the component, find all of the `<main></main>` tags and DELETE them.
+3. For the character details component, lets add two parameters.
 ```
-<main className="character-details-hidden bruce-banner-details">
+<main>
   <CharacterDetails
-    characterName="Bruce Banner / Hulk"
-    characterData={characterDataListing['Bruce Banner / Hulk']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden hawkeye-details">
-  <CharacterDetails
-    characterName="Clint Barton / Hawkeye"
-    characterData={characterDataListing['Clint Barton / Hawkeye']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden erik-selvig-details">
-  <CharacterDetails
-    characterName="Erik Selvig"
-    characterData={characterDataListing['Erik Selvig']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden loki-details">
-  <CharacterDetails
-    characterName="Loki"
-    characterData={characterDataListing['Loki']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden maria-hill-details">
-  <CharacterDetails
-    characterName="Maria Hill"
-    characterData={characterDataListing['Maria Hill']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden black-widow-details">
-  <CharacterDetails
-    characterName="Natasha Romanoff / Black Widow"
-    characterData={characterDataListing['Natasha Romanoff / Black Widow']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden nick-fury-details">
-  <CharacterDetails
-    characterName="Nick Fury"
-    characterData={characterDataListing['Nick Fury']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden phil-coulson-details">
-  <CharacterDetails
-    characterName="Phil Coulson"
-    characterData={characterDataListing['Phil Coulson']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden captain-america-details">
-  <CharacterDetails
-    characterName="Steve Rogers / Captain America"
-    characterData={characterDataListing['Steve Rogers / Captain America']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden thor-details">
-  <CharacterDetails
-    characterName="Thor"
-    characterData={characterDataListing['Thor']}>
-  </CharacterDetails>
-</main>
-<main className="character-details-hidden iron-man-details">
-  <CharacterDetails
-    characterName="Tony Stark / Iron Man"
-    characterData={characterDataListing['Tony Stark / Iron Man']}>
+    characterName={this.state.selectedCharacterName}
+    characterData={this.state.selectedCharacter}>
   </CharacterDetails>
 </main>
 ```
-7. Verify that you still see the character listing on the screen.
-
-There is still too much repetition in this which we will address later but for now at least it is moving in the right direction.
-
-## 16. Have the character listing send events when a character selection changes
-We are going to update the character listing component to send an event to its parent whenever the selected character is changed.
-
-Something worth reviewing:
-https://reactjs.org/docs/handling-events.html
-
-1. 
+3. Verify that you now see the character listing on the screen for Bruce Banner **only**.
+4. Try changing out the state manually to verfy that the character details changes appropriately.
+Example
+```
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedCharacterName: 'Groot',
+      selectedCharacter: characterDataListing['Groot']
+    };
+  }
+```
