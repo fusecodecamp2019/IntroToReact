@@ -189,7 +189,22 @@ It's that time.  We're going to move the whole page into React in this section. 
 
 1. Create a new component called "root".
 2. Open the webpage (index.HTML)
-3. Inside the `<head></head>` tag, remove the `<script></script>` tags for all of the React components present and only have the root component injected here.
+3. Inside the `<head></head>` tag, remove the JQuery import and the `<script></script>` tag for the Javascript that manages the static content.
+```
+<head>
+  ...
+
+  <!-- DELETE THESE LINES -->
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous">
+  </script>
+
+  <script defer src="static-page.js"></script>
+
+  ...
+</head>
+```
+4. Inside the `<head></head>` tag, remove the `<script></script>` tags for all of the React components present and only have the root component injected here.
 In other words:
 ```
 <head>
@@ -302,8 +317,8 @@ https://reactjs.org/docs/state-and-lifecycle.html
   </CharacterDetails>
 </main>
 ```
-3. Verify that you now see the character listing on the screen for Bruce Banner **only**.
-4. Try changing out the state manually to verfy that the character details changes appropriately.
+4. Verify that you now see the character listing on the screen for Bruce Banner **only**.
+5. Try changing out the state manually to verfy that the character details changes appropriately.
 Example
 ```
   constructor(props) {
