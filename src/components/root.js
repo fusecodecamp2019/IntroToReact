@@ -1,8 +1,10 @@
+import { Header } from './header.js';
+
 export class Root extends React.Component{
   render() {
     return (
       <div id="root">
-        <header></header>
+        <Header></Header>
         <aside className="character-listing">
         </aside>
         <main className="character-details no-selection-details">

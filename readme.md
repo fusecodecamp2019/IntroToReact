@@ -221,3 +221,16 @@ At this point when trying to view this webpage you will see errors as the root c
 
 7. In the root component, do a replace all for the text "class=" to become "className=".
 8. When trying to view the page now you should see the layout with NO CONTENT...  this is fine.
+
+## 13. Migrating the header component to be nested in the root component
+1. Add the header component as an import at the top of the root component
+```
+import { Header } from './header.js';
+```
+2. Replace the HTML `<header></header>` tag with the React `<Header></Header>` tag.
+3. Go to the bottom of the header component file and remove the bottom 2 lines as this component is no longer being injected into the webpage but is instead to be used as a nested component (in the root component).
+```
+const headerDomContainer = document.querySelector('header');
+ReactDOM.render(React.createElement(Header), headerDomContainer);
+```
+4. Look at the webpage in the browser.  The header component should be right back where it was earlier.  Now we need to repeat this for the other components we have created.
