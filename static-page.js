@@ -1,6 +1,5 @@
 function selectionChangehandler(elementClicked) {
   let classNameOfItemSelected = elementClicked.target.className;
-  console.log('classNameOfItemSelected: ' + classNameOfItemSelected);
   $('.character-selected').removeClass('character-selected');
   $(`.${classNameOfItemSelected}`).addClass('character-selected');
 
@@ -20,7 +19,6 @@ function changeDetailsShown(characterSelected) {
   newSelectionDetails.removeClass('character-details-hidden');
   newSelectionDetails.addClass('character-details');
 }
-
 
 $(document).ready(function() {
   $(".character-listing li").on("click", selectionChangehandler);

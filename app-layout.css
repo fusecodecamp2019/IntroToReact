@@ -18,10 +18,9 @@ https://css-tricks.com/snippets/css/complete-guide-grid/
 #root {
   display: grid;
   grid-template-columns: 275px auto;
-  grid-template-rows: 80px 75px auto 40px;
+  grid-template-rows: 80px auto 40px;
   grid-template-areas:
     "header header"
-    "search main"
     "aside main"
     "footer footer";
   position: fixed;
@@ -37,17 +36,7 @@ header {
   background-color: #212529;
 }
 
-.character-search {
-  grid-area: search;
-  background-color: #212529;
-}
-
-.character-search input, .character-search select  {
-  font-size: 16px;
-  border-color: black;
-}
-
-.character-listing {
+aside {
   grid-area: aside;
   overflow-y: auto;
   background-color: #141414;
@@ -71,10 +60,6 @@ h1, h2, h3 {
 .secondary-header {
   color: #E62238;
 }
-
-input:focus {
-  outline: #9F92F5 auto 5px;
-} 
 
 .character-selected {
   background-color: #9F92F5;
