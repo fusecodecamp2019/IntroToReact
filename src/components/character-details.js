@@ -1,6 +1,5 @@
 'use strict';
-import { ActorListing } from './actor-listing.js';
-import { MovieAppearances } from './movie-appearances.js';
+import { SimpleListing } from './simple-listing.js';
 
 export class CharacterDetails extends React.Component {
   constructor(props) {
@@ -14,10 +13,16 @@ export class CharacterDetails extends React.Component {
         <p>{this.props.characterData.description}</p>
         <article>
           <section>
-            <ActorListing actors={this.props.characterData.actors}></ActorListing>
+            <SimpleListing
+              title="Actor Listing"
+              listing={this.props.characterData.actors}>
+            </SimpleListing>
           </section>
           <section>
-            <MovieAppearances movies={this.props.characterData.movies}></MovieAppearances>
+            <SimpleListing
+              title="Movie Appearances"
+              listing={this.props.characterData.movies}>
+            </SimpleListing>
           </section>
         </article>
       </div>

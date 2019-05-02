@@ -111,41 +111,44 @@ import { characterDataListing } from '../data/marvel-character-data.js';
 *We're going to stop here and NOT introduce data binding to the actor listing or movie appearance areas of this component as this now provides the opportunity for more component extraction.*
 
 ## 8 Nesting components (actor listing)
-Let's take the actor listing within the character details component and extract it into its own component.  This will almost be the same as our earlier work with the header and footer.  Then we will have the character details component use the new actor listing component.
+Let's take the actor listing within the character details component and extract it into its own component.  This will almost be the same as our earlier work with the header and footer.  Then we will have the character details component use the simple listing component.
 
-1. Create the component file.
-2. Create the class for the component along with it's render function.
+1. Create the component file, call it "simple-listing".
+2. Create the class for the component along with it's render function, name it "SimpleListing".
 3. Move the source HTML from the character details component into the render function.
 (1-3 is a process you should now be familiar with.  Now for the new stuff.)
 
-4. At the top of the character details component file import the actor listing component.
+4. At the top of the character details component file import the simple listing component.
 ```
-import { ActorListing } from './actor-listing.js';
+import { SimpleListing } from './simple-listing.js';
 ```
-5. In the render function for the character details component replace the actor listing raw HTML with the actor listing component tag `<ActorListing></ActorListing>`.
+5. In the render function for the character details component replace the actor listing raw HTML with the simple listing component tag `<SimpleListing></SimpleListing>`.
 6. Verify that you still see Bruce's information properly on the screen.
 
 ## 9. Nesting components with data binding
-Lets get rid of that raw text in the HTML for the actor listing component and pass the actual data.
+Lets get rid of that raw text in the HTML for the simple listing component and pass the actual data.
 
-All React components have an object called **props** automatically setup to provide any properties that the parent might provide.  This section will leverage that to pass the data from the character details component to the actor listing component.
+All React components have an object called **props** automatically setup to provide any properties that the parent might provide.  This section will leverage that to pass the data from the character details component to the simple listing component.
 
 Also take a glance at the '/dist/data/marvel-movie-data.js' file and notice that each character has an "actors" property handily available with our needed data.
 
-1. In the character details component, go back to that `<ActorListing></ActorListing>` tag.  Update that tag to have an "actors" property that will take the "actors" property from our character data.
+1. In the character details component, go back to that `<SimpleListing></SimpleListing>` tag.  Update that tag to have an "actors" property that will take the "actors" property from our character data.
 ```
-<ActorListing actors={this.characterData.actors}></ActorListing>
+<SimpleListing 
+  title="Actor Listing"
+  listing={this.characterData.actors}>
+</SimpleListing>
 ```
-2. Now go into our actor listing component.  In the we're going take this "actors" property (this.props.actors) and make it build our JSX.
+2. Now go into our simple listing component.  In the we're going take this "actors" property (this.props.actors) and make it build our JSX.
 ```
 render() {
   return (
-    <div className="actor-listing">
-      <h4>Actor Listing</h4>
+    <div>
+      <h4>{this.props.title}</h4>
       <ul>
         {
-          this.props.actors.map((actor) => {
-            return <li key={actor}>{actor}</li>
+          this.props.listing.map((listItemText) => {
+            return <li key={listItemText}>{listItemText}</li>
           })
         }
       </ul>
@@ -160,11 +163,9 @@ https://reactjs.org/docs/components-and-props.HTML
 
 ## 10. Nesting components with data binding (movie appearances - rinse and repeat)
 
-TODO: I need to have this along with section 8-9 re-use the same component.
+Now as a means of making sure you grasp what we have done.  The character details component also has a section on movie appearances that needs to be extracted out into a nested component and passed the appropriate data bindings.  
 
-Now as a means of making sure you grasp what we have done.  The character details component also has a section on movie appearances that needs to be extracted out into a nested component and passed the appropriate data bindings.  In this section try to complete that work.  Look back at the notes from sections 8 and 9 for anything that you might not remember.
-
-Once done take a moment and look over what you've done so far.  This is a pretty good milestone for our work today.  
+In this section, try to re-use the simple listing component to replace the movie listing current provided.
 
 ## 11. One last component - Character listing migration
 You may not realize this but we have one last component left and then the whole webpage will be in React.  So look back at the index.HTML file.  We are going to move the `<aside></aside>` tag into a new character listing component.  
@@ -341,3 +342,12 @@ import { characterDataListing } from '../data/marvel-character-data.js';
 ```
 7. Verify that you still see the character listing on the screen.
 
+There is still too much repetition in this which we will address later but for now at least it is moving in the right direction.
+
+## 16. Have the character listing send events when a character selection changes
+We are going to update the character listing component to send an event to its parent whenever the selected character is changed.
+
+Something worth reviewing:
+https://reactjs.org/docs/handling-events.html
+
+1. 
