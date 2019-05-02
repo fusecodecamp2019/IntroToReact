@@ -408,3 +408,35 @@ https://reactjs.org/docs/handling-events.html
 <li key={characterName} onClick={this.handleClick}>{characterName}</li>
 ```
 3. Now in the page, try clicking any character in the listing and see what happens.
+
+## 18. Have the character listing highlight the selected character
+One last this to recover from the original functionality.  When a character is selected then the character name needs to be highlighted.
+
+1. Add the selected character name as a parameter on the character listing component.  As a note, in React we only want one source of truth for state and the root component is owning who is the selected character's name in this application.
+```
+<CharacterListing
+  selectedCharacterName={this.state.selectedCharacterName}
+  characterData={characterDataListing}
+  onSelectedCharacterChange={this.handleSelectedCharacterChange}>
+</CharacterListing>
+```
+2. In the render function for the selected character component, we want to add the css class "character-selected" for the selected list item.
+```
+  render() {
+    return (
+      <aside className="character-listing">
+        <ul>
+          {
+            Object.keys(this.props.characterData).map((characterName) => {
+              if (characterName === this.props.selectedCharacterName) {
+              return <li key={characterName} onClick={this.handleClick} className="character-selected">{characterName}</li>;
+              } else {
+              return <li key={characterName} onClick={this.handleClick}>{characterName}</li>;
+              }
+            })
+          }
+        </ul>
+      </aside>
+    );
+  }
+```

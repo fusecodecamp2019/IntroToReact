@@ -16,7 +16,11 @@ export class CharacterListing extends React.Component {
         <ul>
           {
             Object.keys(this.props.characterData).map((characterName) => {
+              if (characterName === this.props.selectedCharacterName) {
+              return <li key={characterName} onClick={this.handleClick} className="character-selected">{characterName}</li>;
+              } else {
               return <li key={characterName} onClick={this.handleClick}>{characterName}</li>;
+              }
             })
           }
         </ul>

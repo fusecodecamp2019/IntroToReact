@@ -30,10 +30,11 @@ export class Root extends React.Component {
           <Header></Header>
         </header>
         <aside className="character-listing">
-          <CharacterListing 
-            characterData={characterDataListing}
-            onSelectedCharacterChange={this.handleSelectedCharacterChange}>
-          </CharacterListing>
+        <CharacterListing
+          selectedCharacterName={this.state.selectedCharacterName}
+          characterData={characterDataListing}
+          onSelectedCharacterChange={this.handleSelectedCharacterChange}>
+        </CharacterListing>
         </aside>
         <main>
           <CharacterDetails
