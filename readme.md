@@ -40,7 +40,7 @@ Talking points:
 This repository uses npm to download and make whatever Javascript libraries you want available.  You ran `npm install` earlier which actually downloaded the react library we need into the "node_modules" directory.  
 
 Add the below two script tags to the index.HTML page.  These need to be added in between the `<head>...</head>` tags.
-```
+```html
   <script defer src="node_modules/react/umd/react.development.js"></script>
   <script defer src="node_modules/react-dom/umd/react-dom.development.js"></script>
 ```
@@ -56,7 +56,7 @@ Right-click on the page and inspect the `<header></header>` tag.  You should see
 
 1. Create a file called "header.js" in the "\src\components\" directory.
 2. In the new file, declare a class and called "Header" that extends the "React.Component" class that is provided by the React library.  This class needs to have a "render" function like below.
-```
+```javascript
 class Header extends React.Component {
   render() {
     return (
@@ -72,7 +72,7 @@ const domContainer = document.querySelector('header');
 ReactDOM.render(React.createElement(Header), domContainer);
 ```
 1. Add a `<script></script>` tag to import your header component into the index.HTML page.  Place this script tag as the last line inside the `<header></header>` tag.
-```
+```html
 <script defer type="module" src="dist/components/header.js"></script>
 ```
 
@@ -92,7 +92,7 @@ In building the original static webpage I sourced the data from the file '/dist/
 import { characterDataListing } from '../data/marvel-character-data.js';
 ```
 2. Once done, add a constructor to your CharacterDetails class like below.
-```
+```javascript
   constructor(props) {
     super(props);
 
@@ -102,7 +102,7 @@ import { characterDataListing } from '../data/marvel-character-data.js';
   }
 ```
 3. You can then have information from the character bound to fields in the JSX.
-```
+```html
         <h2>{this.characterName}</h2>
         <p>{this.characterData.description}</p>
 ```
@@ -119,7 +119,7 @@ Let's take the actor listing within the character details component and extract 
 (1-3 is a process you should now be familiar with.  Now for the new stuff.)
 
 4. At the top of the character details component file import the simple listing component.
-```
+```javascript
 import { SimpleListing } from './simple-listing.js';
 ```
 5. In the render function for the character details component replace the actor listing raw HTML with the simple listing component tag `<SimpleListing></SimpleListing>`.
@@ -133,14 +133,14 @@ All React components have an object called **props** automatically setup to prov
 Also take a glance at the '/dist/data/marvel-movie-data.js' file and notice that each character has an "actors" property handily available with our needed data.
 
 1. In the character details component, go back to that `<SimpleListing></SimpleListing>` tag.  Update that tag to have an "actors" property that will take the "actors" property from our character data.
-```
+```javascript
 <SimpleListing 
   title="Actor Listing"
   listing={this.characterData.actors}>
 </SimpleListing>
 ```
 2. Now go into our simple listing component.  In the we're going take this "actors" property (this.props.actors) and make it build our JSX.
-```
+```javascript
 render() {
   return (
     <div>
@@ -174,12 +174,12 @@ You may not realize this but we have one last component left and then the whole 
 
 Note: this component is being injected into an HTML page, not another component.  You will need to perform the below two steps to accomplish this.
 2. Add the below 2 statements at the end of the component file.
-```
+```javascript
 const characterListingDomContainer = document.querySelector('.character-listing');
 ReactDOM.render(React.createElement(CharacterListing), characterListingDomContainer);
 ```
 3. Add a `<script></script>` tag to import your header component into the index.HTML page.  Place this script tag as the last line inside the `<header></header>` tag.
-```
+```html
 <script defer type="module" src="dist/components/character-listing.js"></script>
 ```
 4. Verify that you still see the character listing on the screen.
@@ -190,7 +190,7 @@ It's that time.  We're going to move the whole page into React in this section. 
 1. Create a new component called "root".
 2. Open the webpage (index.HTML)
 3. Inside the `<head></head>` tag, remove the JQuery import and the `<script></script>` tag for the Javascript that manages the static content.
-```
+```html
 <head>
   ...
 
@@ -206,7 +206,7 @@ It's that time.  We're going to move the whole page into React in this section. 
 ```
 4. Inside the `<head></head>` tag, remove the `<script></script>` tags for all of the React components present and only have the root component injected here.
 In other words:
-```
+```html
 <head>
   ...
 
@@ -222,13 +222,13 @@ In other words:
 ```
 4. Cut and paste the `<div id="root"></div>` tag from the webpage along with its contents into the new root component's render method.
 5. Update the body of your webpage to have only the below content
-```
+```html
 <body>
   <div id="react-root"></div>
 </body>
 ```
 6. Add the below 2 statements at the end of the root component file.
-```
+```javascript
 const reactRootDomContainer = document.querySelector('#react-root');
 ReactDOM.render(React.createElement(Root), reactRootDomContainer);
 ```
@@ -240,17 +240,17 @@ At this point when trying to view this webpage you will see errors as the root c
 
 ## 13. Migrating the header component to be nested in the root component
 1. Add the header component as an import at the top of the root component
-```
+```javascript
 import { Header } from './header.js';
 ```
 1. Insert the React `<Header></Header>` component tag inside the HTML `<header></header>` tag.
-```
+```html
 <header>
   <Header></Header>
 </header>
 ```
 2. Go to the bottom of the header component file and remove the bottom 2 lines as this component is no longer being injected into the webpage but is instead to be used as a nested component (in the root component).
-```
+```javascript
 const headerDomContainer = document.querySelector('header');
 ReactDOM.render(React.createElement(Header), headerDomContainer);
 ```
@@ -264,14 +264,14 @@ Once this is done the page should appear as it did before but is now moved entir
 # The goal of the next few sections are to make our components talk to one another so that we can move toward making this page more dynamic in what it renders to the page.
 
 ## 15. Making the character details component leverage a "selectedCharacter" parameter
-You might have noticed in the JSX for the root component that there is `<main></main>` tag repeated several times and that our character details component has only address the content for one of these tags.  Let's address that concern here.
+You might have noticed in the JSX for the root component that there is a `<main></main>` tag repeated several times and that our character details component has only address the content for one of these tags.  Let's address that concern here.
 
 1. In the character details component remove this line in the imports at the top of the file
-```
+```javascript
 import { characterDataListing } from '../data/marvel-character-data.js';
 ```
 2. Remove this section in the constructor.
-```
+```javascript
 // This is temporary so we can componentize section of the page using a specific character
 this.characterName = 'Bruce Banner / Hulk';
 this.characterData = characterDataListing[this.characterName];
@@ -279,7 +279,7 @@ this.characterData = characterDataListing[this.characterName];
 3. Replace all instances of "this.characterName" with "this.props.characterName".
 4. Replace all instances of "this.characterData" with "this.props.characterData".
 5. In the render function.  Add an if statement so that when this.props.characterName is defined it returns the current JSX.  Otherwise it should return `<div>(No selection has been made)</div>`.
-```
+```javascript
   render() {
     if (this.props.characterName) {
       return (
@@ -298,7 +298,7 @@ Something worth covering:
 https://reactjs.org/docs/state-and-lifecycle.html
 
 1. In the constructor for the root component set the state object to have the 2 properties below.
-```
+```javascript
   constructor(props) {
     super(props);
     this.state = {
@@ -309,7 +309,7 @@ https://reactjs.org/docs/state-and-lifecycle.html
 ```
 2. In the JSX for the component, find all of the `<main></main>` tags and DELETE them.
 3. For the character details component, lets add two parameters.
-```
+```javascript
 <main>
   <CharacterDetails
     characterName={this.state.selectedCharacterName}
@@ -320,7 +320,7 @@ https://reactjs.org/docs/state-and-lifecycle.html
 4. Verify that you now see the character listing on the screen for Bruce Banner **only**.
 5. Try changing out the state manually to verfy that the character details changes appropriately.
 Example
-```
+```javascript
   constructor(props) {
     super(props);
     this.state = {
@@ -335,11 +335,11 @@ Let's have the character listing inform the root component when the selected cha
 
 #### Part 1 - Make the component use data binding
 1. First, let's pass the characterData through parameters down to the character listing component.  In the root component, update the character listing component like this.
-```
+```javascript
 <CharacterListing characterData={characterDataListing}></CharacterListing>
 ```
 2. In the character listing component, let's have the listing generated dynamically from this characterData property.
-```
+```javascript
 render() {
   return (
     <aside className="character-listing">
@@ -360,7 +360,7 @@ render() {
 Something worth covering:
 https://reactjs.org/docs/state-and-lifecycle.html
 1. In the root component, create a method to handle selected character changes and set the new state.
-```
+```javascript
   constructor(props) {
     super(props);
     this.state = {
@@ -380,7 +380,7 @@ https://reactjs.org/docs/state-and-lifecycle.html
   }
 ```
 2. Add this handler as a parameter on the character listing component.
-```
+```javascript
 <CharacterListing 
   characterData={characterDataListing}
   onSelectedCharacterChange={this.handleSelectedCharacterChange}>
@@ -391,7 +391,7 @@ https://reactjs.org/docs/state-and-lifecycle.html
 Something worth covering:
 https://reactjs.org/docs/handling-events.html
 1. In the character listing component, create a method to handle clicks for any characters in the listing.
-```
+```javascript
   constructor(props) {
     super(props);
 
@@ -404,7 +404,7 @@ https://reactjs.org/docs/handling-events.html
   }
 ```
 2. Add an onClick event handler to the list items in the render function which will call the handleClick method.
-```
+```javascript
 <li key={characterName} onClick={this.handleClick}>{characterName}</li>
 ```
 3. Now in the page, try clicking any character in the listing and see what happens.
@@ -413,7 +413,7 @@ https://reactjs.org/docs/handling-events.html
 One last this to recover from the original functionality.  When a character is selected then the character name needs to be highlighted.
 
 1. Add the selected character name as a parameter on the character listing component.  As a note, in React we only want one source of truth for state and the root component is owning who is the selected character's name in this application.
-```
+```javascript
 <CharacterListing
   selectedCharacterName={this.state.selectedCharacterName}
   characterData={characterDataListing}
@@ -421,7 +421,7 @@ One last this to recover from the original functionality.  When a character is s
 </CharacterListing>
 ```
 2. In the render function for the selected character component, we want to add the css class "character-selected" for the selected list item.
-```
+```javascript
   render() {
     return (
       <aside className="character-listing">
