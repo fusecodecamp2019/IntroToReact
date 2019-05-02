@@ -440,3 +440,7 @@ One last this to recover from the original functionality.  When a character is s
     );
   }
 ```
+
+## 19. Set the initial state to nothing selected.
+1. I the root component set the properties we have in state to the value of undefined.
+
