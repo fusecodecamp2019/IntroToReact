@@ -243,4 +243,101 @@ ReactDOM.render(React.createElement(Header), headerDomContainer);
 ## 14. Migrating all components to be nested in the root component (rinse and repeat)
 Take the process in section 13 and repeat it for the footer, character listing, and character details components.
 
-Once this is done the page should appear as it did before but is now moved entirely into React.  Now it is time to have React make this content dynamic.
+Once this is done the page should appear as it did before but is now moved entirely into React. 
+
+# The goal of the next few sections are to make our components talk to one another so that we can move toward making this page more dynamic in what it renders to the page.
+
+## 15. Making the character details leverage a "selectedCharacter" parameter
+You might have noticed in the JSX for the root component that there is `<main></main>` tag repeated several times and that our character details component has only address the content for one of these tags.  Let's address that concern here.
+
+##### In the character details component:
+1. Remove this line in the imports at the top of the file
+```
+import { characterDataListing } from '../data/marvel-character-data.js';
+```
+2. Remove this section in the constructor.
+```
+// This is temporary so we can componentize section of the page using a specific character
+this.characterName = 'Bruce Banner / Hulk';
+this.characterData = characterDataListing[this.characterName];
+```
+3. Replace all instances of "this.characterName" with "this.props.characterName".
+4. Replace all instances of "this.characterData" with "this.props.characterData".
+
+##### In the root component:
+5. Add this line in the imports at the top of the file
+```
+import { characterDataListing } from '../data/marvel-character-data.js';
+```
+6. Componentize all of the `<main></main>` tags
+(Just copy and paste this otherwise it won't be very fun for you in this step)
+```
+<main className="character-details-hidden bruce-banner-details">
+  <CharacterDetails
+    characterName="Bruce Banner / Hulk"
+    characterData={characterDataListing['Bruce Banner / Hulk']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden hawkeye-details">
+  <CharacterDetails
+    characterName="Clint Barton / Hawkeye"
+    characterData={characterDataListing['Clint Barton / Hawkeye']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden erik-selvig-details">
+  <CharacterDetails
+    characterName="Erik Selvig"
+    characterData={characterDataListing['Erik Selvig']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden loki-details">
+  <CharacterDetails
+    characterName="Loki"
+    characterData={characterDataListing['Loki']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden maria-hill-details">
+  <CharacterDetails
+    characterName="Maria Hill"
+    characterData={characterDataListing['Maria Hill']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden black-widow-details">
+  <CharacterDetails
+    characterName="Natasha Romanoff / Black Widow"
+    characterData={characterDataListing['Natasha Romanoff / Black Widow']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden nick-fury-details">
+  <CharacterDetails
+    characterName="Nick Fury"
+    characterData={characterDataListing['Nick Fury']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden phil-coulson-details">
+  <CharacterDetails
+    characterName="Phil Coulson"
+    characterData={characterDataListing['Phil Coulson']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden captain-america-details">
+  <CharacterDetails
+    characterName="Steve Rogers / Captain America"
+    characterData={characterDataListing['Steve Rogers / Captain America']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden thor-details">
+  <CharacterDetails
+    characterName="Thor"
+    characterData={characterDataListing['Thor']}>
+  </CharacterDetails>
+</main>
+<main className="character-details-hidden iron-man-details">
+  <CharacterDetails
+    characterName="Tony Stark / Iron Man"
+    characterData={characterDataListing['Tony Stark / Iron Man']}>
+  </CharacterDetails>
+</main>
+```
+7. Verify that you still see the character listing on the screen.
+
