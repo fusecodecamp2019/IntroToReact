@@ -19,6 +19,3 @@ export class CharacterListing extends React.Component {
     );
   }
 }
-
-const characterListingDomContainer = document.querySelector('.character-listing');
-ReactDOM.render(React.createElement(CharacterListing), characterListingDomContainer);

@@ -1,16 +1,23 @@
 import { Header } from './header.js';
+import { Footer } from './footer.js';
+import { CharacterListing } from './character-listing.js';
+import { CharacterDetails } from './character-details.js';
 
 export class Root extends React.Component{
   render() {
     return (
       <div id="root">
-        <Header></Header>
+        <header>
+          <Header></Header>
+        </header>
         <aside className="character-listing">
+          <CharacterListing></CharacterListing>
         </aside>
         <main className="character-details no-selection-details">
           <div>(No selection has been made)</div>
         </main>
         <main className="character-details-hidden bruce-banner-details">
+          <CharacterDetails></CharacterDetails>
         </main>
         <main className="character-details-hidden hawkeye-details">
           <div>
@@ -337,7 +344,9 @@ export class Root extends React.Component{
             </article>
           </div>
         </main>
-        <footer></footer>
+        <footer>
+          <Footer></Footer>
+        </footer>
       </div>
     );
   }

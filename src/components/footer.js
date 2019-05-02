@@ -5,6 +5,3 @@ export class Footer extends React.Component {
     );
   }
 }
-
-const footerDomContainer = document.querySelector('footer');
-ReactDOM.render(React.createElement(Footer), footerDomContainer);

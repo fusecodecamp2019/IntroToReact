@@ -227,10 +227,20 @@ At this point when trying to view this webpage you will see errors as the root c
 ```
 import { Header } from './header.js';
 ```
-2. Replace the HTML `<header></header>` tag with the React `<Header></Header>` tag.
-3. Go to the bottom of the header component file and remove the bottom 2 lines as this component is no longer being injected into the webpage but is instead to be used as a nested component (in the root component).
+1. Insert the React `<Header></Header>` component tag inside the HTML `<header></header>` tag.
+```
+<header>
+  <Header></Header>
+</header>
+```
+2. Go to the bottom of the header component file and remove the bottom 2 lines as this component is no longer being injected into the webpage but is instead to be used as a nested component (in the root component).
 ```
 const headerDomContainer = document.querySelector('header');
 ReactDOM.render(React.createElement(Header), headerDomContainer);
 ```
 4. Look at the webpage in the browser.  The header component should be right back where it was earlier.  Now we need to repeat this for the other components we have created.
+
+## 14. Migrating all components to be nested in the root component (rinse and repeat)
+Take the process in section 13 and repeat it for the footer, character listing, and character details components.
+
+Once this is done the page should appear as it did before but is now moved entirely into React.  Now it is time to have React make this content dynamic.
