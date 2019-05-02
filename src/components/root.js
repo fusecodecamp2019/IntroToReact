@@ -11,6 +11,16 @@ export class Root extends React.Component {
       selectedCharacterName: 'Groot',
       selectedCharacter: characterDataListing['Groot']
     };
+
+    this.handleSelectedCharacterChange = this.handleSelectedCharacterChange.bind(this);
+  }
+
+  handleSelectedCharacterChange(selectedCharacterName) {
+    let selectedCharacter = characterDataListing[selectedCharacterName];
+    this.setState({
+      selectedCharacterName: selectedCharacterName,
+      selectedCharacter: selectedCharacter
+    });
   }
 
   render() {
@@ -20,7 +30,10 @@ export class Root extends React.Component {
           <Header></Header>
         </header>
         <aside className="character-listing">
-          <CharacterListing></CharacterListing>
+          <CharacterListing 
+            characterData={characterDataListing}
+            onSelectedCharacterChange={this.handleSelectedCharacterChange}>
+          </CharacterListing>
         </aside>
         <main>
           <CharacterDetails

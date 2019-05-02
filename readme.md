@@ -329,3 +329,82 @@ Example
     };
   }
 ```
+
+## 17. Update the selected character through event handling
+Let's have the character listing inform the root component when the selected character changes.
+
+#### Part 1 - Make the component use data binding
+1. First, let's pass the characterData through parameters down to the character listing component.  In the root component, update the character listing component like this.
+```
+<CharacterListing characterData={characterDataListing}></CharacterListing>
+```
+2. In the character listing component, let's have the listing generated dynamically from this characterData property.
+```
+render() {
+  return (
+    <aside className="character-listing">
+      <ul>
+        {
+          Object.keys(this.props.characterData).map((characterName) => {
+            return <li key={characterName}>{characterName}</li>;
+          })
+        }
+      </ul>
+    </aside>
+  );
+}
+```
+3. Verify that you see a character listing that is a LOT larger than before on the page.
+
+#### Part 2 - Have the root component handle selected character changes
+Something worth covering:
+https://reactjs.org/docs/state-and-lifecycle.html
+1. In the root component, create a method to handle selected character changes and set the new state.
+```
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedCharacterName: 'Groot',
+      selectedCharacter: characterDataListing['Groot']
+    };
+
+    this.handleSelectedCharacterChange = this.handleSelectedCharacterChange.bind(this);
+  }
+
+  handleSelectedCharacterChange(selectedCharacterName) {
+    let selectedCharacter = characterDataListing[selectedCharacterName];
+    this.setState({
+      selectedCharacterName: selectedCharacterName,
+      selectedCharacter: selectedCharacter
+    });
+  }
+```
+2. Add this handler as a parameter on the character listing component.
+```
+<CharacterListing 
+  characterData={characterDataListing}
+  onSelectedCharacterChange={this.handleSelectedCharacterChange}>
+</CharacterListing>
+```
+
+#### Part 3 - Have it send notification when a character is selected.
+Something worth covering:
+https://reactjs.org/docs/handling-events.html
+1. In the character listing component, create a method to handle clicks for any characters in the listing.
+```
+  constructor(props) {
+    super(props);
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    this.props.onSelectedCharacterChange(event.target.textContent);
+  }
+```
+2. Add an onClick event handler to the list items in the render function which will call the handleClick method.
+```
+<li key={characterName} onClick={this.handleClick}>{characterName}</li>
+```
+3. Now in the page, try clicking any character in the listing and see what happens.
