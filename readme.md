@@ -193,21 +193,11 @@ Now as a means of making sure you grasp what we have done.  The character detail
 In this section, try to re-use the simple listing component to replace the movie listing current provided.
 
 ## 11. One last component - Character listing migration
-You may not realize this but we have one last component left and then the whole webpage will be in React.  So look back at the index.HTML file.  We are going to move the `<aside></aside>` tag into a new character listing component.  
+You may not realize this but we have one last component left and then the whole webpage will be in React.  So look back at the index.html file.  We are going to move the `<aside></aside>` tag into a new character listing component.  
 
 1. Migrate the HTML for this into a new component.
-
-Note: this component is being injected into an HTML page, not another component.  You will need to perform the below two steps to accomplish this.
-2. Add the below 2 statements at the end of the component file.
-```javascript
-const characterListingDomContainer = document.querySelector('.character-listing');
-ReactDOM.render(React.createElement(CharacterListing), characterListingDomContainer);
-```
-3. Add a `<script></script>` tag to import your header component into the index.HTML page.  Place this script tag as the last line inside the `<header></header>` tag.
-```html
-<script defer type="module" src="dist/components/character-listing.js"></script>
-```
-4. Verify that you still see the character listing on the screen.
+*Note: this component is being injected into an HTML page, not another component.  You will need to add tell react-dom where to render this on the HTML page.  The CSS selector for this is "aside".*
+2. Verify that you still see the character listing on the screen.
 
 ## 12. Go React or go home
 It's that time.  We're going to move the whole page into React in this section.  Now this will have the most steps compared to earlier work so please take your time and if you get stuck reach out to a coach.
