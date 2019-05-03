@@ -17,7 +17,10 @@ export class CharacterDetails extends React.Component {
         <p>{this.characterData.description}</p>
         <article>
           <section>
-            <SimpleListing></SimpleListing>
+            <SimpleListing
+              title="Actor Listing"
+              listing={this.characterData.actors}>
+            </SimpleListing>
           </section>
           <section>
             <div className="movie-appearances">

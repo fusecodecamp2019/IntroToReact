@@ -55,8 +55,8 @@ Add the below two script tags to the index.HTML page.  These need to be added in
   <script defer src="node_modules/react-dom/umd/react-dom.development.js"></script>
 ```
 
-A good reference point in setting up a basic page with React:
-https://reactjs.org/docs/add-react-to-a-website.HTML
+#### A good reference point in setting up a basic page with React:
+https://reactjs.org/docs/add-react-to-a-website.html
 
 Not much of a bang here but needed for the next step...
 
@@ -152,7 +152,7 @@ import { SimpleListing } from './simple-listing.js';
 *Note that when creating the SimpleListing component we didn't need to add the 2 lines at the bottom of the component file to render it into the HTML file.  That is because this component is being rendered inside other React components.*
 
 ## 9. Nesting components with data binding
-Lets get rid of that raw text in the HTML for the simple listing component and pass the actual data.
+Let's get rid of that raw text in the HTML for the simple listing component and pass the actual data.
 
 All React components have an object called **props** automatically setup to provide any properties that the parent might provide.  This section will leverage that to pass the data from the character details component to the simple listing component.
 
@@ -184,8 +184,8 @@ render() {
 ```
 3. Verify that you still see Bruce's information properly on the screen.
 
-Some documentation from React about this section that might be worth reviewing:
-https://reactjs.org/docs/components-and-props.HTML
+#### Some documentation from React about this section that might be worth reviewing:
+https://reactjs.org/docs/components-and-props.html
 
 ## 10. Nesting components with data binding (movie appearances - rinse and repeat)
 
