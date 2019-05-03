@@ -335,7 +335,7 @@ Example
 ```
 
 ## 18. Update the selected character through event handling
-Let's have the character listing inform the root component when the selected character changes.
+Let's have the character listing inform the root component when the selected character changes.  This is another section that is fairly complex so please take your time and if you get stuck reach out to a coach.
 
 #### Part 1 - Make the component use data binding
 1. First, let's pass the characterData through parameters down to the character listing component.  In the root component, update the character listing component like this.
@@ -361,8 +361,10 @@ render() {
 3. Verify that you see a character listing that is a LOT larger than before on the page.
 
 #### Part 2 - Have the root component handle selected character changes
-Something worth covering:
+
+####Something worth covering:
 https://reactjs.org/docs/state-and-lifecycle.html
+
 1. In the root component, create a method to handle selected character changes and set the new state.
 ```javascript
   constructor(props) {
@@ -372,6 +374,7 @@ https://reactjs.org/docs/state-and-lifecycle.html
       selectedCharacter: characterDataListing['Groot']
     };
 
+    // This binding is necessary to make `this` work in the callback
     this.handleSelectedCharacterChange = this.handleSelectedCharacterChange.bind(this);
   }
 
@@ -391,9 +394,15 @@ https://reactjs.org/docs/state-and-lifecycle.html
 </CharacterListing>
 ```
 
+**It is absolutely critical to respect state in React and only make changes where the below two rules are maintained:
+1. ALWAYS change state using the setState function.
+2. Every property maintained in state should have setState called against it by a single source.  The "source of truth" so to speak when it comes to that property and its value.**
+
 #### Part 3 - Have it send notification when a character is selected.
-Something worth covering:
+
+#### Something worth covering:
 https://reactjs.org/docs/handling-events.html
+
 1. In the character listing component, create a method to handle clicks for any characters in the listing.
 ```javascript
   constructor(props) {
