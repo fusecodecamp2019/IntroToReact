@@ -23,17 +23,10 @@ export class CharacterDetails extends React.Component {
             </SimpleListing>
           </section>
           <section>
-            <div className="movie-appearances">
-              <h4>Movie Appearances</h4>
-              <ul>
-                <li>The Incredible Hulk</li>
-                <li>The Avengers</li>
-                <li>Avengers: Age of Ultron</li>
-                <li>Thor: Ragnarok</li>
-                <li>Avengers: Infinity War</li>
-                <li>Avengers: Endgame</li>
-              </ul>
-            </div>
+            <SimpleListing
+              title="Movie Appearances"
+              listing={this.characterData.movies}>
+            </SimpleListing>
           </section>
         </article>
       </div>

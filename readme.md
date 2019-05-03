@@ -187,8 +187,7 @@ render() {
 #### Some documentation from React about this section that might be worth reviewing:
 https://reactjs.org/docs/components-and-props.html
 
-## 10. Nesting components with data binding (movie appearances - rinse and repeat)
-
+## 10. Component re-use (movie appearances)
 Now as a means of making sure you grasp what we have done.  The character details component also has a section on movie appearances that needs to be extracted out into a nested component and passed the appropriate data bindings.  
 
 In this section, try to re-use the simple listing component to replace the movie listing current provided.
