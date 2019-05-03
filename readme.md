@@ -18,7 +18,7 @@ In this course we will teach you how to take a static content website and transf
 or
 
 1. Download and decompress the zip file for the project at:
-  - Download https://github.com/fusecodecamp2019/IntroToReact/archive/1.0.0.zip.
+  - Download https://github.com/fusecodecamp2019/IntroToReact/archive/1.1.0.zip.
   - Decompress the contents to a directory of your choice. 
 2. Open Visual Studio Code to the directory where this code is stored.
 3. Open the Terminal or Command prompt pane in Visual Studio Code.
