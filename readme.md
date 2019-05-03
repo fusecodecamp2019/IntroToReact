@@ -203,7 +203,9 @@ You may not realize this but we have one last component left and then the whole 
 It's that time.  We're going to move the whole page into React in this section.  Now this will have the most steps compared to earlier work so please take your time and if you get stuck reach out to a coach.
 
 1. Create a new component called "root".
-2. Open the webpage (index.HTML)
+   
+2. Open the webpage (index.html)
+   
 3. Inside the `<head></head>` tag, remove the JQuery import and the `<script></script>` tag for the Javascript that manages the static content.
 ```html
 <head>
@@ -219,6 +221,7 @@ It's that time.  We're going to move the whole page into React in this section. 
   ...
 </head>
 ```
+
 4. Inside the `<head></head>` tag, remove the `<script></script>` tags for all of the React components present and only have the root component injected here.
 In other words:
 ```html
@@ -235,22 +238,16 @@ In other words:
   <script defer type="module" src="dist/components/root.js"></script>
 </head>
 ```
-4. Cut and paste the `<div id="root"></div>` tag from the webpage along with its contents into the new root component's render method.
-5. Update the body of your webpage to have only the below content
+5. Cut and paste the `<div id="root"></div>` tag from the webpage along with its contents into the new root component's render method.  Don't forget the "className" attribute renaming with this step.
+   
+6. Update the body of your webpage to have only the below content.
 ```html
 <body>
   <div id="react-root"></div>
 </body>
 ```
-6. Add the below 2 statements at the end of the root component file.
-```javascript
-const reactRootDomContainer = document.querySelector('#react-root');
-ReactDOM.render(React.createElement(Root), reactRootDomContainer);
-```
+7. At the bottom of the root component file add 2 lines needed so that react-dom can render the root component into the HTML.  The CSS selector that the Root component needs to render into is "#react-root".
 
-At this point when trying to view this webpage you will see errors as the root component doesn't like some particulars with the HTML you placed in its render method.  To address this perform the following.
-
-7. In the root component, do a replace all for the text "class=" to become "className=".
 8. When trying to view the page now you should see the layout with NO CONTENT...  this is fine.
 
 ## 13. Migrating the header component to be nested in the root component
