@@ -264,7 +264,7 @@ It's time to pull the plug by removing JQuery and the application's previous Jav
 </head>
 ```
 
-## 16. Making the character details component leverage a "selectedCharacter" parameter
+## 16. Making the character details component leverage passed properties
 You might have noticed in the JSX for the root component that there is a `<main></main>` tag repeated several times.  Meanwhile, our character details component addresses the content for one of these tags.  Let's address that concern here.
 
 1. In the character details component remove this line in the imports at the top of the file
@@ -290,7 +290,6 @@ this.characterData = characterDataListing[this.characterName];
     return <div>(No selection has been made)</div>;
   }
 ```
-6. Look at the webpage in the browser.  The content for Bruce Banner should say "(No selection has been made)" for now.
 
 ## 17. Introducing state into the root component
 Our root component is going to orchestrate change in the application.  To accomplish this let's introduce state here and then let the nest component bind to this information and notify the root component when there is a change.
