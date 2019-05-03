@@ -21,3 +21,7 @@ footer {
 .character-details-hidden {
   display: none;
 }
+
+.star-wars-logo {
+  height: 52px;
+}
