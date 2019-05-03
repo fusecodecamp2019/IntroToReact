@@ -1,4 +1,4 @@
-export const characterData = {
+export const characterDataListing = {
   "Aaron Davis": {
     "actors": ["Donald Glover"],
     "description": "A criminal looking to purchase weapons from Toomes.[30][31] Davis is the uncle of Miles Morales, a version of Spider-Man, in the comics. Glover voiced Morales in the Ultimate Spider-Man television series, and campaigned to portray Spider-Man in a film in 2010. Watts was aware of the campaign, and as soon as he was hired he asked Feige about casting Glover. The role was designed as \"a surprise treat for fans\", with Davis mentioning his nephew to set up Morales potentially appearing in a future MCU film.[31]",
