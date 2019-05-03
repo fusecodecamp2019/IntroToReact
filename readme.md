@@ -205,24 +205,8 @@ It's that time.  We're going to move the whole page into React in this section. 
 1. Create a new component called "root".
    
 2. Open the webpage (index.html)
-   
-3. Inside the `<head></head>` tag, remove the JQuery import and the `<script></script>` tag for the Javascript that manages the static content.
-```html
-<head>
-  ...
 
-  <!-- DELETE THESE LINES -->
-  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous">
-  </script>
-
-  <script defer src="static-page.js"></script>
-
-  ...
-</head>
-```
-
-4. Inside the `<head></head>` tag, remove the `<script></script>` tags for all of the React components present and only have the root component injected here.
+3. Inside the `<head></head>` tag, remove the `<script></script>` tags for all of the React components present and only have the root component injected here.
 In other words:
 ```html
 <head>
@@ -239,18 +223,18 @@ In other words:
 </head>
 ```
 
-5. Cut and paste the `<div id="root"></div>` tag from the webpage along with its contents into the new root component's render method.  Don't forget the "className" attribute renaming with this step.
+4. Cut and paste the `<div id="root"></div>` tag from the webpage along with its contents into the new root component's render method.  Don't forget the "className" attribute renaming with this step.
    
-6. Update the body of your webpage to have only the below content.
+5. Update the body of your webpage to have only the below content.
 ```html
 <body>
   <div id="react-root"></div>
 </body>
 ```
 
-7. At the bottom of the root component file add the 2 lines needed so that react-dom can render the root component into the HTML.  The CSS selector that the Root component needs to render into is "#react-root".
+6. At the bottom of the root component file add the 2 lines needed so that react-dom can render the root component into the HTML.  The CSS selector that the Root component needs to render into is "#react-root".
 
-8. When trying to view the page now you should see the layout with NO CONTENT...  this is fine.
+7. When trying to view the page now you should see the layout with NO CONTENT...  this is fine.
 
 ## 13. Migrating the header component to be nested in the root component
 1. Add the header component as an import at the top of the root component
