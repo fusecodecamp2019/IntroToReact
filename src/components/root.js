@@ -1,4 +1,7 @@
 import { Header } from './header.js';
+import { Footer } from './footer.js';
+import { CharacterListing } from './character-listing.js';
+import { CharacterDetails } from './character-details.js';
 
 export class Root extends React.Component {
   render() {
@@ -8,11 +11,13 @@ export class Root extends React.Component {
           <Header></Header>
         </header>
         <aside className="character-listing">
+          <CharacterListing></CharacterListing>
         </aside>
         <main className="character-details no-selection-details">
           <div>(No selection has been made)</div>
         </main>
         <main className="character-details-hidden bruce-banner-details">
+          <CharacterDetails></CharacterDetails>
         </main>
         <main className="character-details-hidden hawkeye-details">
           <h2>Clint Barton / Hawkeye</h2>
@@ -311,6 +316,7 @@ export class Root extends React.Component {
           </article>
         </main>
         <footer>
+          <Footer></Footer>
         </footer>
       </div>
     );

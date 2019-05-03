@@ -17,6 +17,3 @@ export class CharacterListing extends React.Component {
     );
   }
 }
-
-const characterListingDomContainer = document.querySelector('aside');
-ReactDOM.render(React.createElement(CharacterListing), characterListingDomContainer);

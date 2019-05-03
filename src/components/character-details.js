@@ -33,6 +33,3 @@ export class CharacterDetails extends React.Component {
     );
   }
 }
-
-const characterDetailsDomContainer = document.querySelector('.bruce-banner-details');
-ReactDOM.render(React.createElement(CharacterDetails), characterDetailsDomContainer);
