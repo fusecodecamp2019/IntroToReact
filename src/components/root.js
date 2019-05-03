@@ -8,8 +8,8 @@ export class Root extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCharacterName: 'Groot',
-      selectedCharacter: characterDataListing['Groot']
+      selectedCharacterName: undefined,
+      selectedCharacter: undefined
     };
 
     // This binding is necessary to make `this` work in the callback

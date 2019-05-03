@@ -453,6 +453,13 @@ One last thing to recover from the original functionality.  When a character is 
     );
   }
 ```
+3. Verify that the selection highlights as appropriate.
 
 ## 20. Set the initial state to nothing selected.
 1. In the root component set the properties we have in state to the value of undefined.
+2. Verify that all original functionality is restored.  We are no longer "lights out" with the application.
+
+## CONGRATULATIONS!
+You have have fully converted the webpage completely over to React.  The HTML for the page is a single `<div></div>` tag and React is rendering only what is needed onto the page based on user actions.
+
+... take a break for a few minutes.  I have a feature addition I would like you to try and tackle when you are ready.
