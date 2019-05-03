@@ -362,7 +362,7 @@ render() {
 
 #### Part 2 - Have the root component handle selected character changes
 
-####Something worth covering:
+#### Something worth covering:
 https://reactjs.org/docs/state-and-lifecycle.html
 
 1. In the root component, create a method to handle selected character changes and set the new state.
