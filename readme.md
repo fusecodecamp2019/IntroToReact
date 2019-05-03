@@ -457,7 +457,7 @@ One last thing to recover from the original functionality.  When a character is 
 
 ## 20. Set the initial state to nothing selected.
 1. In the root component set the properties we have in state to the value of undefined.
-2. Verify that all original functionality is restored.  We are no longer "lights out" with the application.
+2. Verify that all original functionality is restored.  We are no longer "lights out" with the application when ripping out the previous Javascript logic and JQuery dependency.
 
 ## CONGRATULATIONS!
 You have have fully converted the webpage completely over to React.  The HTML for the page is a single `<div></div>` tag and React is rendering only what is needed onto the page based on user actions.
