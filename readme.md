@@ -4,18 +4,28 @@
 Installation requirements
 - VSCode, https://code.visualstudio.com/download
 - NodeJS, https://nodejs.org/en/download/
-- Git(hub), https://desktop.github.com/
+- Optional - Git(hub), https://desktop.github.com/
 
 1. Clone this github repo from https://github.com/cah-johnryan/IntroToReact
-  a. Open Terminal or Command prompt
-  b. Change directory to where you want your work stored
-  c. Run `git clone https://github.com/cah-johnryan/IntroToReact`
+  a. Open Terminal or Command prompt.
+  b. Change directory to where you want your work stored.
+  c. Run `git clone https://github.com/cah-johnryan/IntroToReact`.
 
-2. Run `npm install`
+- or -
 
-3. Run `npm start`
+1. Download and decompress the zip file for the project at:
+   a. Download https://github.com/cah-johnryan/IntroToReact/archive/1.0.0.zip.
+   b. Decompress the contents to a directory of your choice.
 
-4. Open your browser of choice to http://localhost:8080/
+2. Open Visual Studio Code to the directory where this code is stored.
+   
+3. Open the Terminal or Command prompt pane in Visual Studio Code.
+
+4. Run `npm install`
+
+5. Run `npm start`
+
+6. Open your browser of choice to http://localhost:8080/
 
 Installation notes (see the package.json file for your npm dependencies):
 - (Core focus) React, the core library we are focusing on for this sesssion.
@@ -29,22 +39,21 @@ Installation notes (see the package.json file for your npm dependencies):
 -  concurrently, Let's us run babel as well as http-server at the same time through a single command (npm start)
 
 ## 2. Orientation
-Currently http://localhost:8080/ is serving the index.HTML file in the root directory.  This HTML file is currently providing information on characters from the first Avengers movie.  It uses a little bit of JQuery to hide and show sections of HTML based on user's clicking in the left-hand pane.
+Currently http://localhost:8080/ is serving the index.html file in the root directory.  This HTML file is currently providing information on characters from the first Avengers movie.  It uses a little bit of JQuery to hide and show sections of HTML based on user's clicking in the left-hand pane.
 
 Talking points:
 - There is a decent amount of repetitive HTML for each of the characters from the movie.
 - There is a sprinkling of raw Javascript that leverages JQuery to hide and show parts of the page based on user clicks.
-- This page is decent for a simple example.  But if more complexity were to be added to this page it can be hard to manage using the current pattern.  If I were to have to expand this page I would start by moving the repetitive HTML into a generator in Javascript --> and that is exactly what the React library is built for.
+- This page is decent for a simple example.  But if more complexity were to be added to this page it can be hard to manage using the current pattern.  If I were to have to expand this page I would start by moving the repetitive HTML into a generator in Javascript, and that is exactly something the React library is built to accomplish.
 
 ## 3. Add React to the page
 This repository uses npm to download and make whatever Javascript libraries you want available.  You ran `npm install` earlier which actually downloaded the react library we need into the "node_modules" directory.  
 
-Add the below two script tags to the index.HTML page.  These need to be added in between the `<head>...</head>` tags.
+Add the below two script tags to the index.HTML page.  These need to be added in inside the `<head>...</head>` tag for this page.
 ```html
   <script defer src="node_modules/react/umd/react.development.js"></script>
   <script defer src="node_modules/react-dom/umd/react-dom.development.js"></script>
 ```
-
 
 A good reference point in setting up a basic page with React:
 https://reactjs.org/docs/add-react-to-a-website.HTML
@@ -54,10 +63,10 @@ Not much of a bang here but needed for the next step...
 ## 4. Add your first component to the page (header)
 Right-click on the page and inspect the `<header></header>` tag.  You should see highlighting for the grid being used to layout the page.  In this section we are going to move the header into a component.  The goal here is just to get you familiar with how to create and add a component to a page.
 
-1. Create a file called "header.js" in the "\src\components\" directory.
+1. Create a file called "header.js" in the "\src\components\" directory (create the directory if it is not present).
 2. In the new file, declare a class and called "Header" that extends the "React.Component" class that is provided by the React library.  This class needs to have a "render" function like below.
 ```javascript
-class Header extends React.Component {
+export class Header extends React.Component {
   render() {
     return (
 
@@ -65,16 +74,18 @@ class Header extends React.Component {
   }
 }
 ```
-3. Move the contents of the `<header></header>` tag into the return value of of the Header.render function you created in the last step.  Note that JSX syntax does not agree with the use of the "class" attribute.  You will need to rename that attribute to "className".
-4. Add the below 2 statements at the end of the "header.js" file.
+3. Move the contents of the `<header></header>` tag into the return value of of the Header.render function you created in the last step.  Make sure to leave the `<header></header>` tag on the page.
+4. Note that JSX syntax does not agree with the use of the "class" attribute.  Inside your render function you will need to rename any "class" attributes to "className".
+5. Add the below 2 statements at the end of the "header.js" file.
 ```
-const domContainer = document.querySelector('header');
-ReactDOM.render(React.createElement(Header), domContainer);
+const headerDomContainer = document.querySelector('header');
+ReactDOM.render(React.createElement(Header), headerDomContainer);
 ```
-1. Add a `<script></script>` tag to import your header component into the index.HTML page.  Place this script tag as the last line inside the `<header></header>` tag.
+6. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
 ```html
 <script defer type="module" src="dist/components/header.js"></script>
 ```
+7. Verify that you still see the header on the screen when refreshing the page.
 
 #### (Review what we have just done to make sure that everyone understands what is going on)
 
