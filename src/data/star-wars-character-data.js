@@ -15,7 +15,7 @@ export const characterDataListing = {
   },
   "C-3PO": {
     "actors": ["Anthony Daniels"],
-    "description": "nthony Daniels as C-3PO, a humanoid protocol droid in the service of Leia Organa.[11]",
+    "description": "Anthony Daniels as C-3PO, a humanoid protocol droid in the service of Leia Organa.[11]",
     "movies": ["Star Wars: Episode I – The Phantom Menace", "Star Wars: Episode II – Attack of the Clones", "Star Wars: Episode III – Revenge of the Sith", "Star Wars", "The Empire Strikes Back", "Return of the Jedi", "Star Wars: The Force Awakens", "Star Wars: The Last Jedi"],
     "isVillian": false,
     "isHero": false
@@ -23,7 +23,7 @@ export const characterDataListing = {
   "R2-D2": {
     "actors": ["Kenny Baker"],
     "description": "An astromech droid, friend of Luke, and longtime companion of C-3PO. He also portrays a GONK power droid in the background.",
-    "movies": ["Star Wars: Episode I – The Phantom Menace", "Star Wars: Episode II – Attack of the Clones", "Star Wars: Episode III – Revenge of the Sith", "Star Wars", "The Empire Strikes Back", "Return of the Jedi"],
+    "movies": ["Star Wars: Episode I – The Phantom Menace", "Star Wars: Episode II – Attack of the Clones", "Star Wars: Episode III – Revenge of the Sith", "Star Wars", "The Empire Strikes Back", "Return of the Jedi", "Star Wars: The Force Awakens", "Star Wars: The Last Jedi"],
     "isVillian": false,
     "isHero": false
   },
@@ -36,7 +36,7 @@ export const characterDataListing = {
   },
   "Yoda": {
     "actors": ["Frank Oz"],
-    "description": "rank Oz as Yoda, the deceased former Grand Master of the Jedi, and Luke's wise former mentor, who appears as a Force-ghost.[22]",
+    "description": "Frank Oz as Yoda, the deceased former Grand Master of the Jedi, and Luke's wise former mentor, who appears as a Force-ghost.[22]",
     "movies": ["Star Wars: Episode I – The Phantom Menace", "Star Wars: Episode II – Attack of the Clones", "Star Wars: Episode III – Revenge of the Sith", "The Empire Strikes Back", "Return of the Jedi", "Star Wars: The Last Jedi"],
     "isVillian": false,
     "isHero": false
