@@ -16,15 +16,10 @@ Installation requirements
 1. Download and decompress the zip file for the project at:
    a. Download https://github.com/cah-johnryan/IntroToReact/archive/1.0.0.zip.
    b. Decompress the contents to a directory of your choice.
-
 2. Open Visual Studio Code to the directory where this code is stored.
-   
 3. Open the Terminal or Command prompt pane in Visual Studio Code.
-
 4. Run `npm install`
-
 5. Run `npm start`
-
 6. Open your browser of choice to http://localhost:8080/
 
 Installation notes (see the package.json file for your npm dependencies):
@@ -64,7 +59,6 @@ Not much of a bang here but needed for the next step...
 Right-click on the page and inspect the `<header></header>` tag.  You should see highlighting for the grid being used to layout the page.  In this section we are going to move the header into a component.  The goal here is just to get you familiar with how to create and add a component to a page.
 
 1. Create a file called "header.js" in the "\src\components\" directory (create the directory if it is not present).
-
 2. In the new file, declare a class and called "Header" that extends the "React.Component" class that is provided by the React library.  This class needs to have a "render" function like below.
 ```javascript
 export class Header extends React.Component {
@@ -75,18 +69,14 @@ export class Header extends React.Component {
   }
 }
 ```
-
 3. Move the contents of the `<header></header>` tag into the return value of of the Header.render function you created in the last step.  Make sure to leave the `<header></header>` tag on the page.
-
 4. Note that JSX syntax does not agree with the use of the "class" attribute.  Inside your render function you will need to rename any "class" attributes to "className".
-
 5. Add the below 2 statements at the end of the "header.js" file.
 ```
 const headerDomContainer = document.querySelector('header');
 ReactDOM.render(React.createElement(Header), headerDomContainer);
 ```
 This finds the `<header></header>` tag via the "header CSS selector and renders your Footer component into that location in the HTML.  This is what the "react-dom" library is imported to provide.
-
 6. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
 ```html
 <script defer type="module" src="dist/components/header.js"></script>
@@ -203,9 +193,7 @@ You may not realize this but we have one last component left and then the whole 
 It's that time.  We're going to move the whole page into React in this section.  Now this will have the most steps compared to earlier work so please take your time and if you get stuck reach out to a coach.
 
 1. Create a new component called "root".
-   
 2. Open the webpage (index.html)
-
 3. Inside the `<head></head>` tag, remove the `<script></script>` tags for all of the React components present and only have the root component injected here.
 In other words:
 ```html
@@ -222,18 +210,14 @@ In other words:
   <script defer type="module" src="dist/components/root.js"></script>
 </head>
 ```
-
 4. Cut and paste the `<div id="root"></div>` tag from the webpage along with its contents into the new root component's render method.  Don't forget the "className" attribute renaming with this step.
-   
 5. Update the body of your webpage to have only the below content.
 ```html
 <body>
   <div id="react-root"></div>
 </body>
 ```
-
 6. At the bottom of the root component file add the 2 lines needed so that react-dom can render the root component into the HTML.  The CSS selector that the Root component needs to render into is "#react-root".
-
 7. When trying to view the page now you should see the layout with NO CONTENT...  this is fine.
 
 ## 13. Migrating the header component to be nested in the root component
@@ -241,13 +225,13 @@ In other words:
 ```javascript
 import { Header } from './header.js';
 ```
-1. Insert the React `<Header></Header>` component tag inside the HTML `<header></header>` tag.
+2. Insert the React `<Header></Header>` component tag inside the HTML `<header></header>` tag.
 ```html
 <header>
   <Header></Header>
 </header>
 ```
-2. Go to the bottom of the header component file and remove the bottom 2 lines as this component is no longer being injected into the webpage but is instead to be used as a nested component (in the root component).
+3. Go to the bottom of the header component file and remove the bottom 2 lines as this component is no longer being injected into the webpage but is instead to be used as a nested component (in the root component).
 ```javascript
 const headerDomContainer = document.querySelector('header');
 ReactDOM.render(React.createElement(Header), headerDomContainer);
@@ -264,7 +248,7 @@ Once this is done the page should appear as it did before but is now moved entir
 ## 15. Cut the cord with JQuery and the previous Javascript code
 It's time to pull the plug by removing JQuery and the application's previous Javascript code.  After this the character selection functionality will go "lights out" so to speak until we implement this in React.
 
-2. Inside the `<head></head>` tag of the index.html file, remove the JQuery import and the `<script></script>` tag for the Javascript that manages the static content.
+1. Inside the `<head></head>` tag of the index.html file, remove the JQuery import and the `<script></script>` tag for the Javascript that manages the static content.
 ```html
 <head>
   ...
@@ -281,7 +265,7 @@ It's time to pull the plug by removing JQuery and the application's previous Jav
 ```
 
 ## 16. Making the character details component leverage a "selectedCharacter" parameter
-You might have noticed in the JSX for the root component that there is a `<main></main>` tag repeated several times and that our character details component has only address the content for one of these tags.  Let's address that concern here.
+You might have noticed in the JSX for the root component that there is a `<main></main>` tag repeated several times.  Meanwhile, our character details component addresses the content for one of these tags.  Let's address that concern here.
 
 1. In the character details component remove this line in the imports at the top of the file
 ```javascript
@@ -293,7 +277,7 @@ import { characterDataListing } from '../data/marvel-character-data.js';
 this.characterName = 'Bruce Banner / Hulk';
 this.characterData = characterDataListing[this.characterName];
 ```
-3. Replace all instances of "this.characterName" with "this.props.characterName".
+3. Replace "this.characterName" with "this.props.characterName".
 4. Replace all instances of "this.characterData" with "this.props.characterData".
 5. In the render function.  Add an if statement so that when this.props.characterName is defined it returns the current JSX.  Otherwise it should return `<div>(No selection has been made)</div>`.
 ```javascript
