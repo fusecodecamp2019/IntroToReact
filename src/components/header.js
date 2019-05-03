@@ -17,6 +17,3 @@ export class Header extends React.Component {
     );
   }
 }
-
-const headerDomContainer = document.querySelector('header');
-ReactDOM.render(React.createElement(Header), headerDomContainer);
