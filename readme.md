@@ -292,12 +292,16 @@ this.characterData = characterDataListing[this.characterName];
 ```
 
 ## 17. Introducing state into the root component
-Our root component is going to orchestrate change in the application.  To accomplish this let's introduce state here and then let the nest component bind to this information and notify the root component when there is a change.
+Our root component is going to orchestrate change in the application.  To accomplish this let's introduce state here and then let the nested components bind to this information and notify the root component when there is a change.
 
-Something worth covering:
+#### Something worth covering:
 https://reactjs.org/docs/state-and-lifecycle.html
 
-1. In the constructor for the root component set the state object to have the 2 properties below.
+1. In the character details component remove this line in the imports at the top of the file
+```javascript
+import { characterDataListing } from '../data/marvel-character-data.js';
+```
+2. In the constructor for the root component set the state object to have the 2 properties below.
 ```javascript
   constructor(props) {
     super(props);
@@ -307,8 +311,8 @@ https://reactjs.org/docs/state-and-lifecycle.html
     };
   }
 ```
-2. In the JSX for the component, find all of the `<main></main>` tags and DELETE them.
-3. For the character details component, lets add two parameters.
+3. In the JSX for the component, find all of the `<main></main>` tags and **DELETE** them.
+4. For the character details component, lets add two parameters.
 ```javascript
 <main>
   <CharacterDetails
@@ -317,8 +321,8 @@ https://reactjs.org/docs/state-and-lifecycle.html
   </CharacterDetails>
 </main>
 ```
-4. Verify that you now see the character listing on the screen for Bruce Banner **only**.
-5. Try changing out the state manually to verfy that the character details changes appropriately.
+5. Verify that you now see the character listing on the screen for Bruce Banner **only**.
+6. Try changing out the state manually to verfy that the character details changes appropriately.
 Example
 ```javascript
   constructor(props) {
