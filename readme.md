@@ -99,7 +99,14 @@ This finds the `<header></header>` tag via the "header CSS selector and renders 
 Repeat the process from section 4 with the footer for the page just to ensure you grasp the process of creating a React component.
 
 ## 6. Character details component migration (for Bruce Banner).
-For this next effort we are going to move the *first* of the `<main></main>` tags that have the "character-details-hidden" class into a new component (Bruce Banner).  When we have fully migrated this to a component we will expand this to do the same for its siblings.  Use the same process you did with the header and footer for this effort.  Don't forget the "className" attribute renaming with this step.  Verify that the component renders properly on the page.  
+For this next effort we are going to move the contents of the *first* of the `<main></main>` tags that have the "character-details-hidden" class into a new component (Bruce Banner).  When we have fully migrated this to a component we will expand this to do the same for its siblings later in this document.  
+
+Use the same process you did with the header and footer for this effort.  
+
+Notes:
+- Don't forget the "className" attribute renaming with this step.
+- The CSS selector for this component to use for component rendering is ".bruce-banner-details".
+- Verify that the component renders properly on the page.  
   
 ## 7. Character details with data binding (for Bruce Banner).
 In building the original static webpage I sourced the data from the file '/dist/data/marvel-movie-data.js'.  Import this data into the new character details component and display Bruce Banners information from that data instead as raw values.
