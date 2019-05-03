@@ -64,6 +64,7 @@ Not much of a bang here but needed for the next step...
 Right-click on the page and inspect the `<header></header>` tag.  You should see highlighting for the grid being used to layout the page.  In this section we are going to move the header into a component.  The goal here is just to get you familiar with how to create and add a component to a page.
 
 1. Create a file called "header.js" in the "\src\components\" directory (create the directory if it is not present).
+
 2. In the new file, declare a class and called "Header" that extends the "React.Component" class that is provided by the React library.  This class needs to have a "render" function like below.
 ```javascript
 export class Header extends React.Component {
@@ -74,13 +75,18 @@ export class Header extends React.Component {
   }
 }
 ```
+
 3. Move the contents of the `<header></header>` tag into the return value of of the Header.render function you created in the last step.  Make sure to leave the `<header></header>` tag on the page.
+
 4. Note that JSX syntax does not agree with the use of the "class" attribute.  Inside your render function you will need to rename any "class" attributes to "className".
+
 5. Add the below 2 statements at the end of the "header.js" file.
 ```
 const headerDomContainer = document.querySelector('header');
 ReactDOM.render(React.createElement(Header), headerDomContainer);
 ```
+This finds the `<header></header>` tag via the "header CSS selector and renders your Footer component into that location in the HTML.  This is what the "react-dom" library is imported to provide.
+
 6. Add a `<script></script>` tag to import your header component into the index.html page.  Place this script tag as the last line inside the `<header></header>` tag.
 ```html
 <script defer type="module" src="dist/components/header.js"></script>
