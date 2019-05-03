@@ -93,7 +93,7 @@ This finds the `<header></header>` tag via the "header CSS selector and renders 
 ```
 7. Verify that you still see the header on the screen when refreshing the page.
 
-#### (Review what we have just done to make sure that everyone understands what is going on)
+*Review what we have just done to make sure that everyone understands what is going on.*
 
 ## 5. Footer component migration (rinse and repeat)
 Repeat the process from section 4 with the footer for the page just to ensure you grasp the process of creating a React component.
@@ -135,19 +135,21 @@ import { characterDataListing } from '../data/marvel-character-data.js';
 *We're going to stop here and NOT introduce data binding to the actor listing or movie appearance areas of this component as this now provides the opportunity for more component extraction.*
 
 ## 8. Nesting components (actor listing)
-Let's take the actor listing within the character details component and extract it into its own component.  This will almost be the same as our earlier work with the header and footer.  Then we will have the character details component use the simple listing component.
+Let's take the actor listing within the character details component and extract it into its own component.  This will almost be the same as our earlier work with the header and footer.  Then we will have the character details component use the new component.
 
-1. Create the component file, call it "simple-listing".
+1. Create a component file, call it "simple-listing.js".
 2. Create the class for the component along with it's render function, name it "SimpleListing".
-3. Move the source HTML from the character details component into the render function.
+3. Copy the source HTML of the actor listing from the character details component into the render function.
 (1-3 is a process you should now be familiar with.  Now for the new stuff.)
 
 4. At the top of the character details component file import the simple listing component.
 ```javascript
 import { SimpleListing } from './simple-listing.js';
 ```
-5. In the render function for the character details component replace the actor listing raw HTML with the simple listing component tag `<SimpleListing></SimpleListing>`.
+5. In the render function for the character details component, replace the actor listing raw HTML with the simple listing component tag `<SimpleListing></SimpleListing>`.
 6. Verify that you still see Bruce's information properly on the screen.
+
+*Note that when creating the SimpleListing component we didn't need to add the 2 lines at the bottom of the component file to render it into the HTML file.  That is because this component is being rendered inside other React components.*
 
 ## 9. Nesting components with data binding
 Lets get rid of that raw text in the HTML for the simple listing component and pass the actual data.

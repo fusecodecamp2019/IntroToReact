@@ -1,4 +1,5 @@
 import { characterDataListing } from '../data/marvel-character-data.js';
+import { SimpleListing } from './simple-listing.js';
 
 export class CharacterDetails extends React.Component {
   constructor(props) {
@@ -16,13 +17,7 @@ export class CharacterDetails extends React.Component {
         <p>{this.characterData.description}</p>
         <article>
           <section>
-            <div className="actor-listing">
-              <h4>Actor Listing</h4>
-              <ul>
-                <li>Edward Norton</li>
-                <li>Mark Ruffalo</li>
-              </ul>
-            </div>
+            <SimpleListing></SimpleListing>
           </section>
           <section>
             <div className="movie-appearances">
