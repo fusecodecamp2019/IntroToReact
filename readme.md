@@ -248,7 +248,7 @@ In other words:
 </body>
 ```
 
-7. At the bottom of the root component file add 2 lines needed so that react-dom can render the root component into the HTML.  The CSS selector that the Root component needs to render into is "#react-root".
+7. At the bottom of the root component file add the 2 lines needed so that react-dom can render the root component into the HTML.  The CSS selector that the Root component needs to render into is "#react-root".
 
 8. When trying to view the page now you should see the layout with NO CONTENT...  this is fine.
 
