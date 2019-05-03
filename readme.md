@@ -259,9 +259,28 @@ Take the process in section 13 and repeat it for the footer, character listing, 
 
 Once this is done the page should appear as it did before but is now moved entirely into React. 
 
-# The goal of the next few sections are to make our components talk to one another so that we can move toward making this page more dynamic in what it renders to the page.
+*The goal of the next few sections are to make our components talk to one another so that we can move toward making this page more dynamic in what it renders to the page.*
 
-## 15. Making the character details component leverage a "selectedCharacter" parameter
+## 15. Cut the cord with JQuery and the previous Javascript code
+It's time to pull the plug by removing JQuery and the application's previous Javascript code.  After this the character selection functionality will go "lights out" so to speak until we implement this in React.
+
+2. Inside the `<head></head>` tag of the index.html file, remove the JQuery import and the `<script></script>` tag for the Javascript that manages the static content.
+```html
+<head>
+  ...
+
+  <!-- DELETE THESE LINES -->
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous">
+  </script>
+
+  <script defer src="static-page.js"></script>
+
+  ...
+</head>
+```
+
+## 16. Making the character details component leverage a "selectedCharacter" parameter
 You might have noticed in the JSX for the root component that there is a `<main></main>` tag repeated several times and that our character details component has only address the content for one of these tags.  Let's address that concern here.
 
 1. In the character details component remove this line in the imports at the top of the file
@@ -289,7 +308,7 @@ this.characterData = characterDataListing[this.characterName];
 ```
 6. Look at the webpage in the browser.  The content for Bruce Banner should say "(No selection has been made)" for now.
 
-## 16. Introducing state into the root component
+## 17. Introducing state into the root component
 Our root component is going to orchestrate change in the application.  To accomplish this let's introduce state here and then let the nest component bind to this information and notify the root component when there is a change.
 
 Something worth covering:
@@ -328,7 +347,7 @@ Example
   }
 ```
 
-## 17. Update the selected character through event handling
+## 18. Update the selected character through event handling
 Let's have the character listing inform the root component when the selected character changes.
 
 #### Part 1 - Make the component use data binding
@@ -407,7 +426,7 @@ https://reactjs.org/docs/handling-events.html
 ```
 3. Now in the page, try clicking any character in the listing and see what happens.
 
-## 18. Have the character listing highlight the selected character
+## 19. Have the character listing highlight the selected character
 One last this to recover from the original functionality.  When a character is selected then the character name needs to be highlighted.
 
 1. Add the selected character name as a parameter on the character listing component.  As a note, in React we only want one source of truth for state and the root component is owning who is the selected character's name in this application.
@@ -439,5 +458,5 @@ One last this to recover from the original functionality.  When a character is s
   }
 ```
 
-## 19. Set the initial state to nothing selected.
+## 20. Set the initial state to nothing selected.
 1. In the root component set the properties we have in state to the value of undefined.
