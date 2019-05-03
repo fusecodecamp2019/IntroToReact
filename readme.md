@@ -238,6 +238,7 @@ In other words:
   <script defer type="module" src="dist/components/root.js"></script>
 </head>
 ```
+
 5. Cut and paste the `<div id="root"></div>` tag from the webpage along with its contents into the new root component's render method.  Don't forget the "className" attribute renaming with this step.
    
 6. Update the body of your webpage to have only the below content.
@@ -246,6 +247,7 @@ In other words:
   <div id="react-root"></div>
 </body>
 ```
+
 7. At the bottom of the root component file add 2 lines needed so that react-dom can render the root component into the HTML.  The CSS selector that the Root component needs to render into is "#react-root".
 
 8. When trying to view the page now you should see the layout with NO CONTENT...  this is fine.
