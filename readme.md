@@ -10,10 +10,10 @@ In this course we will teach you how to take a static content website and transf
 - Optional - Git(hub), https://desktop.github.com/
 
 
-1. Clone this github repo from https://github.com/cah-johnryan/IntroToReact
+1. Clone this github repo from https://github.com/fusecodecamp2019/IntroToReact
   - Open Terminal or Command prompt.
   - Change directory to where you want your work stored.  
-  - Run `git clone https://github.com/cah-johnryan/IntroToReact`.
+  - Run `git clone https://github.com/fusecodecamp2019/IntroToReact.git`.
 
 or
 
